@@ -8,6 +8,7 @@ import { ChildListComponent } from './components/child-list/child-list.component
 import { HeaderComponent } from './components/header/header.component';
 import { NotebookComponent } from './components/notebook/notebook.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { SectionListComponent } from './components/section-list/section-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
     ChildListComponent,
     HeaderComponent,
     NotebookComponent,
-    PostListComponent
+    PostListComponent,
+    SectionListComponent
   ],
   imports: [
     BrowserModule,
