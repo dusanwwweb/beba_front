@@ -1,0 +1,46 @@
+<table border="1">
+    <thead></thead>
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>adresse</th>
+        <th>ville</th>
+        <th>datede naissance</th>
+        <th>poids</th>
+        <th>sexe</th>
+        <th>allergy</th>
+        <th>photo</th>
+        <th>updated</th>
+        <th>carnet</th>
+        <th>parents</th>
+    </tr>
+
+    <tbody>
+        <tr *ngFor="let child of children">
+            <td>{{child.id}}</td>
+            <td>{{child.firstName}}</td>
+            <td>{{child.lastName}}</td>
+            <td>{{child.address}}</td>
+            <td>{{child.city}}</td>
+            <td>{{child.dateOfBirth}}</td>
+            <td>{{child.weight}}</td>
+            <td>{{child.sex}}</td>
+            <td>{{child.allergyType}}</td>
+            <td><img src='{{ child.profilePhoto }}' style="width: 60%" /></td>
+            <td>{{child.updated}}</td>
+            <td>
+                <!-- <a *ngIf="child.notebook">{{child.notebook.name}}</a> -->
+                <a routerLink="notebook/{{ child.notebook.id }}">{{child.notebook.id}}</a>
+            </td>
+            <td>
+                <div *ngIf="child.parents[0]">
+                    <p>{{child.parents[0].firstName}} {{child.parents[0].lastName}}</p>
+                </div>
+                <div *ngIf="child.parents[1]">
+                    <p>{{child.parents[1].firstName}} {{child.parents[1].lastName}}</p>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
