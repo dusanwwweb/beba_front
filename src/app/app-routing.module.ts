@@ -1,6 +1,7 @@
+import { NotebookDetailComponent } from './components/notebook-detail/notebook-detail.component';
 import { PostListComponent } from './components/post-list/post-list.component';
-import { NotebookComponent } from './components/notebook/notebook.component';
 import { ChildListComponent } from './components/child-list/child-list.component';
+import { NotebookListComponent } from './components/notebook-list/notebook-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionListComponent } from './components/section-list/section-list.component';
@@ -17,11 +18,15 @@ const routes: Routes = [
   },
   { 
     path:'notebook', 
-    component: NotebookComponent
+    component: NotebookListComponent
   },
   { 
     path:'notebook/:id', 
-    component: NotebookComponent
+    component: NotebookDetailComponent
+  },
+  { 
+    path:'post/:id', 
+    component: PostListComponent
   },
   { 
     path:'post', 

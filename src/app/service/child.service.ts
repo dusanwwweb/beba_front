@@ -17,4 +17,16 @@ export class ChildService {
     return this.httpClient.get<Child[]>(`${this.url}/api/children`);
   }
 
+  public addChild(child: Child): Observable<Child> {
+    return this.httpClient.post<Child>(`${this.url}/api/children`, child);
+  }
+
+  public updateChild(id: number, child: Child): Observable<Child> {
+    return this.httpClient.put<Child>(`${this.url}/api/children/${id}`, child);
+  }
+
+  public deleteChild(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.url}/api/children/${id}`);
+  }
+
 }

@@ -6,18 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildListComponent } from './components/child-list/child-list.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NotebookComponent } from './components/notebook/notebook.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { NotebookListComponent } from './components/notebook-list/notebook-list.component';
 import { SectionListComponent } from './components/section-list/section-list.component';
+import { NotebookDetailComponent } from './components/notebook-detail/notebook-detail.component';
+import { PostModalComponent } from './components/post-modal/post-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildListComponent,
     HeaderComponent,
-    NotebookComponent,
+    NotebookListComponent,
     PostListComponent,
-    SectionListComponent
+    SectionListComponent,
+    NotebookDetailComponent,
+    PostModalComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ export interface Post {
     id: number;
     activityType: ActivityType;
     observation: string;
-    startTime: any;
-    endTime: any;
+    startTime: Date;
+    endTime: Date;
     notebook: Notebook;
 }
