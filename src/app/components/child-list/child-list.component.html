@@ -1,20 +1,22 @@
-<table border="1">
-    <thead></thead>
-    <tr>
-        <th>id</th>
-        <th>nom</th>
-        <th>prenom</th>
-        <th>adresse</th>
-        <th>ville</th>
-        <th>datede naissance</th>
-        <th>poids</th>
-        <th>sexe</th>
-        <th>allergy</th>
-        <th>photo</th>
-        <th>updated</th>
-        <th>carnet</th>
-        <th>parents</th>
-    </tr>
+<div class="table-responsive">
+<table class="table table-hover border-success">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>adresse</th>
+            <th>ville</th>
+            <th>date de naissance</th>
+            <th>poids</th>
+            <th>sexe</th>
+            <th>allergy</th>
+            <th>photo</th>
+            <th>updated</th>
+            <th>carnet</th>
+            <th>parents</th>
+        </tr>
+    </thead>
 
     <tbody>
         <tr *ngFor="let child of children">
@@ -30,7 +32,6 @@
             <td><img src='{{ child.profilePhoto }}' style="width: 60%" /></td>
             <td>{{child.updated}}</td>
             <td>
-                <!-- <a *ngIf="child.notebook">{{child.notebook.name}}</a> -->
                 <a routerLink="notebook/{{ child.notebook.id }}">{{child.notebook.id}}</a>
             </td>
             <td>
@@ -44,3 +45,4 @@
         </tr>
     </tbody>
 </table>
+</div>

@@ -17,4 +17,8 @@ export class NotebookService {
     return this.httpClient.get<Notebook>(`${this.url}/api/notebook/${id}`);
   }
 
+  public getNotebooks(): Observable<Notebook[]> {
+    return this.httpClient.get<Notebook[]>(`${this.url}/api/notebook`);
+  }
+
 }

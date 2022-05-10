@@ -1,1 +1,34 @@
-<p>notebook works!</p>
+<div class="table-responsive">
+    <table class="table table-hover border-success">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nom</th>
+                <th>creation</th>
+                <th>notes</th>
+
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let notebook of notebooks">
+                <td>{{notebook.id}}</td>
+                <td>{{notebook.name}}</td>
+                <td>{{notebook.created}}</td>
+                <!-- <td><img src='{{ notebook.profilePhoto }}' style="width: 60%" /></td>
+                <td>{{notebook.updated}}</td>
+                <td>
+                    <a routerLink="notebook/{{ notebook.notebook.id }}">{{notebook.notebook.id}}</a>
+                </td>
+                <td>
+                    <div *ngIf="notebook.parents[0]">
+                        <p>{{notebook.parents[0].firstName}} {{notebook.parents[0].lastName}}</p>
+                    </div>
+                    <div *ngIf="notebook.parents[1]">
+                        <p>{{notebook.parents[1].firstName}} {{notebook.parents[1].lastName}}</p>
+                    </div>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+    </div>
