@@ -8,6 +8,10 @@ import { SectionListComponent } from './components/section-list/section-list.com
 
 const routes: Routes = [
   { 
+    path:'**', 
+    component: ChildListComponent,
+  },
+  { 
     path:'', 
     component: ChildListComponent,
     pathMatch: 'full'

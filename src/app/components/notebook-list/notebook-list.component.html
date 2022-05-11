@@ -4,7 +4,7 @@
             <tr>
                 <!-- <th>id</th> -->
                 <th>nom</th>
-                <!-- <th>creation</th> -->
+                <th>creation</th>
                 <th>notes</th>
 
             </tr>
@@ -14,9 +14,8 @@
             <tr *ngFor="let notebook of notebooks">
                 <!-- <td>{{notebook.id}}</td> -->
                 <td><a routerLink="/notebook/{{ notebook.id }}">{{notebook.name}}</a></td>
-                <!-- <td>{{notebook.created}}</td> -->
+                <td>{{notebook.created | date: 'shortDate'}}</td>
                 <td *ngIf="notebook.posts">{{notebook.posts?.length || '0' }}</td>
-                <!-- TODO MATTRE LE NOMBRE DES POSTS -->
             </tr>
         </tbody>
     </table>
