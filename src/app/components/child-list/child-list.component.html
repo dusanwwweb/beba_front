@@ -1,44 +1,31 @@
 <div class="container table-responsive">
-<table class="table table-hover table-sm border-success">
-    <thead>
-        <tr>
-            <th></th>
-            <!-- <th>id</th> -->
-            <th>nom et prenom</th>
-            <th>adresse</th>
-            <th>date de naissance</th>
-            <th>poids</th>
-            <th>sexe</th>
-            <th>allergy</th>
-            <th>mis à jour</th>
-            <th>carnet</th>
-            <th>parents</th>
-        </tr>
-    </thead>
+    <h3>Bébés</h3>
+    <br>
+    <table class="table table-hover table-sm border-success">
+        <thead>
+            <tr>
+                <th>photo</th>
+                <!-- <th>id</th> -->
+                <th>nom</th>
+                <th>adresse</th>
+                <th>naissance</th>
+                <th>age</th>
+                <!-- <th>carnet</th> -->
+            </tr>
+        </thead>
 
-    <tbody>
-        <tr *ngFor="let child of children">
-            <td><img src='{{ child.profilePhoto }}' style="width: 30%" /></td>
-            <!-- <td>{{child.id}}</td> -->
-            <td>{{child.firstName}} {{child.lastName}}</td>
-            <td>{{child.address}}, {{child.city}}</td>
-            <td>{{child.dateOfBirth}}</td>
-            <td>{{child.weight}}</td>
-            <td>{{child.sex}}</td>
-            <td>{{child.allergyType}}</td>
-            <td>{{child.updated}}</td>
-            <td>
-                <a routerLink="/notebook/{{ child.notebook.id }}">{{child.notebook.id}}</a>
-            </td>
-            <td>
-                <div *ngIf="child.parents[0]">
-                    <p>{{child.parents[0].firstName}} {{child.parents[0].lastName}}</p>
-                </div>
-                <div *ngIf="child.parents[1]">
-                    <p>{{child.parents[1].firstName}} {{child.parents[1].lastName}}</p>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <tbody>
+            <tr *ngFor="let child of children">
+                <td><img src='{{ child.profilePhoto }}' /></td>
+                <!-- <td>{{child.id}}</td> -->
+                <td>{{child.firstName}} {{child.lastName}}</td>
+                <td>{{child.address}}, {{child.city}}</td>
+                <td>{{child.dateOfBirth}}</td>
+                <td>{{calculateAge(child.dateOfBirth) | json}}</td>
+                <!-- <td>
+                    <a routerLink="/notebook/{{ child.notebook.id }}">{{child.notebook.name}}</a>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
 </div>

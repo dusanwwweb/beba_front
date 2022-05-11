@@ -14,6 +14,7 @@ import { NotebookListComponent } from './components/notebook-list/notebook-list.
 import { SectionListComponent } from './components/section-list/section-list.component';
 import { NotebookDetailComponent } from './components/notebook-detail/notebook-detail.component';
 import { PostModalComponent } from './components/post-modal/post-modal.component';
+import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PostModalComponent } from './components/post-modal/post-modal.component
     PostListComponent,
     SectionListComponent,
     NotebookDetailComponent,
-    PostModalComponent
+    PostModalComponent,
+    SectionDetailComponent
   ],
   imports: [
     BrowserModule,

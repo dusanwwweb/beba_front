@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Section } from 'src/app/models/section.model';
+import { SectionService } from 'src/app/service/section.service';
 
 @Component({
   selector: 'app-section-list',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionListComponent implements OnInit {
 
-  constructor() { }
+  sections!: Section[];
+  
+  constructor(private sectionService: SectionService ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.sectionService.getSections().subscribe(
+      response =>  this.handleSuccessfulResponse(response),
+    );
+  }
+
+  handleSuccessfulResponse(response: Section[]) {
+    this.sections = response;
+    console.log(response);
   }
 
 }

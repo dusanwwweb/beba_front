@@ -1,23 +1,23 @@
-<div class="table-responsive">
-    <table class="table table-hover border-success">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>activité</th>
-                <th>observation</th>
-                <th>début</th>
-                <th>fin</th>
-            </tr>
-        </thead>
-    
-        <tbody>
-            <tr *ngFor="let post of posts">
-                <td>{{post.id}}</td>
-                <td>{{post.activityType}}</td>
-                <td>{{post.observation}}</td>
-                <td>{{post.startTime}}</td>
-                <td>{{post.endTime}}</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
+<div class="container table-responsive">
+  <table class="table table-hover border-success">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>activité</th>
+        <th>observation</th>
+        <th>début</th>
+        <th>fin</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.activityType }}</td>
+        <td>{{ post.observation }}</td>
+        <td>{{ post.startTime}}</td>
+        <td>{{ post.endTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

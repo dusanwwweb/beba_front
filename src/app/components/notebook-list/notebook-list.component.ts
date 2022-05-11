@@ -3,6 +3,7 @@ import { identity } from 'rxjs';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-list-notebook',
@@ -17,7 +18,7 @@ export class NotebookListComponent implements OnInit {
 
   posts!: Post[];
 
-  constructor(private notebookService: NotebookService) { }
+  constructor(private notebookService: NotebookService, private location: Location) { }
 
   ngOnInit() {
     this.notebookService.getNotebooks().subscribe(
@@ -36,5 +37,8 @@ export class NotebookListComponent implements OnInit {
     console.log(response);
   }
 
+  back(): void {
+    this.location.back()
+  }
 }
 

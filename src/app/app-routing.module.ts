@@ -5,12 +5,13 @@ import { NotebookListComponent } from './components/notebook-list/notebook-list.
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionListComponent } from './components/section-list/section-list.component';
+import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 
 const routes: Routes = [
-  { 
-    path:'**', 
-    component: ChildListComponent,
-  },
+  // { 
+  //   path:'**', 
+  //   component: ChildListComponent,
+  // },
   { 
     path:'', 
     component: ChildListComponent,
@@ -39,6 +40,10 @@ const routes: Routes = [
   { 
     path:'section', 
     component: SectionListComponent
+  },
+  { 
+    path:'section/:id', 
+    component: SectionDetailComponent
   },
 ];
 

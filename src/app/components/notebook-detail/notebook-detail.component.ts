@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-notebook-detail',
   templateUrl: './notebook-detail.component.html',
@@ -15,7 +15,7 @@ export class NotebookDetailComponent implements OnInit {
   posts!: Post[];
   notebook!: Notebook;
   
-  constructor(private notebookService: NotebookService, private route: ActivatedRoute) { }
+  constructor(private notebookService: NotebookService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((() => {
@@ -38,6 +38,10 @@ export class NotebookDetailComponent implements OnInit {
   open(){
     
     // APPELLE MODALE
+  }
+
+  back(): void {
+    this.location.back()
   }
 
 }
