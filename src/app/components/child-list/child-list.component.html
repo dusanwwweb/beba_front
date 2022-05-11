@@ -3,16 +3,14 @@
     <thead>
         <tr>
             <th></th>
-            <th>id</th>
-            <th>nom</th>
-            <th>prenom</th>
+            <!-- <th>id</th> -->
+            <th>nom et prenom</th>
             <th>adresse</th>
-            <th>ville</th>
             <th>date de naissance</th>
             <th>poids</th>
             <th>sexe</th>
             <th>allergy</th>
-            <th>updated</th>
+            <th>mis à jour</th>
             <th>carnet</th>
             <th>parents</th>
         </tr>
@@ -20,12 +18,10 @@
 
     <tbody>
         <tr *ngFor="let child of children">
-            <td><img src='{{ child.profilePhoto }}' style="width: 60%" /></td>
-            <td>{{child.id}}</td>
-            <td>{{child.firstName}}</td>
-            <td>{{child.lastName}}</td>
-            <td>{{child.address}}</td>
-            <td>{{child.city}}</td>
+            <td><img src='{{ child.profilePhoto }}' style="width: 30%" /></td>
+            <!-- <td>{{child.id}}</td> -->
+            <td>{{child.firstName}} {{child.lastName}}</td>
+            <td>{{child.address}}, {{child.city}}</td>
             <td>{{child.dateOfBirth}}</td>
             <td>{{child.weight}}</td>
             <td>{{child.sex}}</td>

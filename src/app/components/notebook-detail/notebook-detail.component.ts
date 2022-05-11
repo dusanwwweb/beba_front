@@ -34,9 +34,9 @@ export class NotebookDetailComponent implements OnInit {
       response => {this.posts = response}
     )
   }
-
-
-  onNewPost(){
+  
+  open(){
+    
     // APPELLE MODALE
   }
 
