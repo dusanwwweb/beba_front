@@ -14,7 +14,7 @@ export class NotebookListComponent implements OnInit {
 
   notebooks!: Notebook[];
 
-  notebook!: Notebook;
+  // notebook!: Notebook;
 
   posts!: Post[];
 

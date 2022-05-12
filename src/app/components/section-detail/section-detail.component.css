@@ -6,3 +6,7 @@ img{
 .table td {
     text-align: left;
 } 
+
+span {
+    font-weight: 600;
+}

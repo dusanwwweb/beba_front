@@ -15,7 +15,11 @@ export class NotebookDetailComponent implements OnInit {
   posts!: Post[];
   notebook!: Notebook;
   
-  constructor(private notebookService: NotebookService, private route: ActivatedRoute, private location: Location) { }
+  constructor(
+    private notebookService: NotebookService, 
+    private route: ActivatedRoute, 
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((() => {

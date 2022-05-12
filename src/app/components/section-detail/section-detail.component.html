@@ -1,45 +1,29 @@
-<div class="container table-responsive">
-  <h3>{{ section.name }}</h3>
+<div class="container table-responsive mb-5">
+  <h3 class="mb-4">{{ section.name }}</h3>
   <table class="table table-hover table-sm border-success">
     <thead>
       <tr>
         <th>photo</th>
-        <!-- <th>id</th> -->
         <th>nom</th>
-        <th>adresse</th>
-        <th>naissance</th>
-        <th>poids</th>
-        <th>sexe</th>
-        <th>allergy</th>
-        <th>mis à jour</th>
-        <th>parents</th>
+        <!-- <th>adresse</th>
+        <th>naissance</th> -->
+        <th>age</th>
         <th>carnet</th>
       </tr>
     </thead>
-
     <tbody>
       <tr *ngFor="let child of children">
-        <td><img src="{{ child.profilePhoto }}" /></td>
-        <!-- <td>{{child.id}}</td> -->
-        <td>{{ child.firstName }} {{ child.lastName }}</td>
-        <td>{{ child.address }}, {{ child.city }}</td>
-        <td>{{ child.dateOfBirth }}</td>
-        <td>{{ child.weight }}</td>
-        <td>{{ child.sex }}</td>
-        <td>{{ child.allergyType }}</td>
-        <td>{{ child.updated }}</td>
         <td>
-          <div *ngIf="child.parents[0]">
-            <p>
-              {{ child.parents[0].firstName }} {{ child.parents[0].lastName }}
-            </p>
-          </div>
-          <div *ngIf="child.parents[1]">
-            <p>
-              {{ child.parents[1].firstName }} {{ child.parents[1].lastName }}
-            </p>
-          </div>
+          <a routerLink="/children/{{ child.id }}" class="notebook-name"
+            ><img src="{{ child.profilePhoto }}"
+          /></a>
         </td>
+        <td>
+          <span>{{ child.firstName }}</span> {{ child.lastName }}
+        </td>
+        <!-- <td>{{ child.address }}, {{ child.city }}</td>
+        <td>{{ child.dateOfBirth }}</td> -->
+        <td>{{calculateAge(child.dateOfBirth)}}</td>
         <td>
           <a routerLink="/notebook/{{ child.notebook.id }}">{{
             child.notebook.name
@@ -48,7 +32,9 @@
       </tr>
     </tbody>
   </table>
-  <button class="btn btn-sm btn-outline-primary" (click)="back()">
-    Retour
-  </button>
+  <div class="d-flex justify-content-between my-4">
+    <button class="btn btn-sm btn-outline-primary" (click)="back()">
+      Retour
+    </button>
+  </div>
 </div>

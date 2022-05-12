@@ -17,6 +17,10 @@ export class ChildService {
     return this.httpClient.get<Child[]>(`${this.url}/api/children`);
   }
 
+  public geChildById(id: number): Observable<Child> {
+    return this.httpClient.get<Child>(`${this.url}/api/children/${id}`);
+  }
+
   public addChild(child: Child): Observable<Child> {
     return this.httpClient.post<Child>(`${this.url}/api/children`, child);
   }

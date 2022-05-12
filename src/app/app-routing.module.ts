@@ -6,11 +6,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionListComponent } from './components/section-list/section-list.component';
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
+import { ChildDetailComponent } from './components/child-detail/child-detail.component';
 
 const routes: Routes = [
   // { 
   //   path:'**', 
-  //   component: ChildListComponent,
+  //   redirectTo: 'section',
   // },
   { 
     path:'', 
@@ -20,6 +21,10 @@ const routes: Routes = [
   { 
     path:'children', 
     component: ChildListComponent,
+  },
+  { 
+    path:'children/:id', 
+    component: ChildDetailComponent,
   },
   { 
     path:'notebook', 

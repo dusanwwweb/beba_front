@@ -1,6 +1,6 @@
 img{
 	border-radius: 50%;
-    width: 20%;
+    width: 80%;
 }
 
 .table td {
@@ -9,8 +9,5 @@ img{
 
 span {
     font-weight: 600;
+    font-size: x-large;
 }
-/* .table {
-    table-layout: fixed;
-    width: 100%;
-} */
