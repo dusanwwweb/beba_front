@@ -3,61 +3,54 @@
   <br />
   <div class="card-group">
     <div class="card mx-2">
-      <a routerLink="/section/{{ sections[0].id }}" class="section-name"
-        ><img
+      <a routerLink="/section/{{ sections[0].id }}" class="section-name"><img
           src="https://cdn-icons.flaticon.com/png/512/2102/premium/2102805.png?token=exp=1652281322~hmac=35d6318733c26ecdb8e13d79cdf73737"
           class="card-img-top"
-          alt="Icon d'un nourisson"
-      /></a>
+          alt="Icon d'un nourisson"/>
+      </a>
       <div class="card-body">
         <h3 class="card-title mb-4">{{ sections[0].name }}</h3>
         <p class="card-text">
           Cette section concerne les nourissons à partir de trois mois et demi
         </p>
         <p class="card-text">
-          <small class="text-muted"
-            >N° d'enfants : {{ sections[0].children?.length || "0" }}</small
-          >
+          <small class="text-muted">Nb d'enfants : {{ sections[0].children?.length || "0" }}</small>
         </p>
       </div>
     </div>
     <br />
     <div class="card mx-2">
-      <a routerLink="/section/{{ sections[1].id }}" class="section-name"
-        ><img
+      <a routerLink="/section/{{ sections[1].id }}" class="section-name">
+        <img
           src="https://cdn-icons.flaticon.com/png/512/3320/premium/3320112.png?token=exp=1652281333~hmac=22e9b7bcc699021db2735bd0afed7b03"
           class="card-img-top"
-          alt="Icon d'un bébé"
-      /></a>
+          alt="Icon d'un bébé" />
+      </a>
       <div class="card-body">
         <h3 class="card-title mb-4">{{ sections[1].name }}</h3>
         <p class="card-text">
           Cette section concerne les bébés à partir d'un an
         </p>
         <p class="card-text">
-          <small class="text-muted"
-            >N° d'enfants : {{ sections[1].children?.length || "0" }}</small
-          >
+          <small class="text-muted">Nb d'enfants : {{ sections[1].children?.length || "0" }}</small>
         </p>
       </div>
     </div>
     <br />
     <div class="card mx-2">
-      <a routerLink="/section/{{ sections[2].id }}" class="section-name"
-        ><img
+      <a routerLink="/section/{{ sections[2].id }}" class="section-name">
+        <img
           src="https://cdn-icons-png.flaticon.com/512/1702/1702292.png"
           class="card-img-top"
-          alt="Icon d'un enfant"
-      /></a>
+          alt="Icon d'un enfant"/>
+      </a>
       <div class="card-body">
         <h3 class="card-title mb-4">{{ sections[2].name }}</h3>
         <p class="card-text">
           Cette section concerne les bébés à partir de deux ans
         </p>
         <p class="card-text">
-          <small class="text-muted"
-            >N° d'enfants : {{ sections[2].children?.length || "0" }}</small
-          >
+          <small class="text-muted">Nb d'enfants : {{ sections[2].children?.length || "0" }}</small>
         </p>
       </div>
     </div>

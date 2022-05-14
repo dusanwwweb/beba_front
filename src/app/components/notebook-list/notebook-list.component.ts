@@ -18,6 +18,7 @@ export class NotebookListComponent implements OnInit {
 
   posts!: Post[];
 
+
   constructor(private notebookService: NotebookService, private location: Location) { }
 
   ngOnInit() {

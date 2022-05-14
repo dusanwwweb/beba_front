@@ -17,6 +17,8 @@ import { PostModalComponent } from './components/post-modal/post-modal.component
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 import { ChildDetailComponent } from './components/child-detail/child-detail.component';
 import { ChildModalComponent } from './components/child-modal/child-modal.component';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ChildModalComponent } from './components/child-modal/child-modal.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'}

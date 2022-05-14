@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-child-modal',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() name: any;
+  
+  constructor(public activeModal: NgbActiveModal) {}
+  // constructor(public activeModal: NgbActiveModal, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+
   }
 
 }

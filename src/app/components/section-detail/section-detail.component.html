@@ -1,9 +1,15 @@
 <div class="container table-responsive mb-5">
-  <h3 class="mb-4">{{ section.name }}</h3>
+  <h3>{{ section.name }}</h3>
+  <div class="row align-items-center justify-content-between">
+    <div class="col-2">
+      <label for="firstName"></label>
+      <input id="firstName" type="text" class="form-control" [(ngModel)]="firstName" placeholder="Rechercher un enfant"/>
+    </div>
+  </div>
   <table class="table table-hover table-sm border-success">
     <thead>
       <tr>
-        <th>photo</th>
+        <th></th>
         <th>nom</th>
         <!-- <th>adresse</th>
         <th>naissance</th> -->
@@ -12,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let child of children">
+      <tr *ngFor="let child of children | filter: firstName">
         <td>
           <a routerLink="/children/{{ child.id }}" class="notebook-name"
             ><img src="{{ child.profilePhoto }}"
@@ -33,7 +39,7 @@
     </tbody>
   </table>
   <div class="d-flex justify-content-between my-4">
-    <button class="btn btn-sm btn-outline-primary" (click)="back()">
+    <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
     </button>
   </div>

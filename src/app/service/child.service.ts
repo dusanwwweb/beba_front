@@ -17,8 +17,12 @@ export class ChildService {
     return this.httpClient.get<Child[]>(`${this.url}/api/children`);
   }
 
-  public geChildById(id: number): Observable<Child> {
+  public getChildById(id: number): Observable<Child> {
     return this.httpClient.get<Child>(`${this.url}/api/children/${id}`);
+  }
+
+  public getChildByFirstName(firstName: string): Observable<Child> {
+    return this.httpClient.get<Child>(`${this.url}/api/children/name/${firstName}`);
   }
 
   public addChild(child: Child): Observable<Child> {

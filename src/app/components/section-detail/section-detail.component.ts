@@ -15,7 +15,8 @@ export class SectionDetailComponent implements OnInit {
 
   children!: Child[];
   section!: Section;
-    
+  firstName!: string;
+
   constructor(
     private sectionService: SectionService, 
     private route: ActivatedRoute,

@@ -1,1 +1,37 @@
-<p>child-modal works!</p>
+<div class="modal-header">
+  <h4 class="modal-title">Mettre à jour {{ name }}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <form>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label">Prénom</label>
+      <input type="text" class="form-control" id="firstName" placeholder={{name}}/>
+      <div class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="lastName" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sauvgarder</button>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Fermer
+  </button>
+</div>

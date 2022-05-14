@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Child } from 'src/app/models/child.model';
 import { ChildService } from 'src/app/service/child.service';
 import { Location } from '@angular/common'
-
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ChildModalComponent } from '../child-modal/child-modal.component';
 @Component({
   selector: 'app-child-detail',
   templateUrl: './child-detail.component.html',
@@ -17,7 +18,8 @@ export class ChildDetailComponent implements OnInit {
   constructor(
     private childService: ChildService,
     private route: ActivatedRoute,
-    private location: Location 
+    private location: Location,
+    private modalService: NgbModal
     ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class ChildDetailComponent implements OnInit {
   getChildDetails() {
     const childId = Number(this.route.snapshot.paramMap.get('id'))
 
-    this.childService.geChildById(childId).subscribe(
+    this.childService.getChildById(childId).subscribe(
       response => {this.child = response}
     );
   }
@@ -38,4 +40,8 @@ export class ChildDetailComponent implements OnInit {
     this.location.back()
   }
   
+  open() {
+    const modalRef = this.modalService.open(ChildModalComponent);
+    modalRef.componentInstance.name = `${this.child.firstName}`;
+  }
 }

@@ -3,8 +3,8 @@
   <table class="table table-hover border-success">
     <thead>
       <tr>
-        <th>id</th>
-        <th>activité</th>
+        <!-- <th>id</th>
+        <th>activité</th> -->
         <th>observation</th>
         <th>début</th>
         <th>fin</th>
@@ -13,8 +13,8 @@
     
     <tbody>
       <tr *ngFor="let post of posts">
-        <td>{{ post.id }}</td>
-        <td>{{ post.activityType }}</td>
+        <!-- <td>{{ post.id }}</td>
+        <td>{{ post.activityType }}</td> -->
         <td>{{ post.observation }}</td>
         <td>{{ post.startTime }}</td>
         <td>{{ post.endTime }}</td>
@@ -22,10 +22,10 @@
     </tbody>
   </table>
   <div class="d-flex justify-content-between">
-    <button class="btn btn-sm btn-outline-primary" (click)="back()">
+    <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
     </button>
-    <button class="btn btn-sm btn-outline-success" (click)="open()">
+    <button type="button" class="btn btn-sm btn-outline-success" (click)="open()">
       Nouvelle note
     </button>
   </div>
