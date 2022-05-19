@@ -1,33 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { ActivityType } from 'src/app/enums/activityType.enum';
+import { Notebook } from 'src/app/models/notebook.model';
+import { Post } from 'src/app/models/post.model';
+import { NotebookService } from 'src/app/service/notebook.service';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'app-post-modal',
   templateUrl: './post-modal.component.html',
   styleUrls: ['./post-modal.component.css']
 })
-export class PostModalComponent  {
+export class PostModalComponent implements OnInit{
 
-  closeResult = '';
+  //Form
+  addPost!: FormGroup;
 
-  constructor(private modalService: NgbModal) {}
+  post: Post = new Post();
+  posts!: Post[];
 
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  id: any;
+  // notebook!: Notebook;
+  //Enum 
+  //activityList = Object.keys(ActivityType);
+
+  constructor(
+    public activeModal: NgbActiveModal, 
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private postService: PostService,
+    private notebookService: NotebookService
+  ) {}
+
+  ngOnInit(): void {
+    this.addPost = this.formBuilder.group({
+      activityType: [''],
+      observation: [''],
+      startTime: [''],
+      endTime: ['']
+    })
+
+    // this.route.paramMap.subscribe((() => {
+    //   this.onSubmit();
+    // }))
+    // console.log(this.activityList);
+  }
+  
+  onSubmit(){
+    console.log(this.addPost);
+    console.warn(this.addPost.value);
+
+    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log("ID " + notebookId);
+    
+    this.post.activityType = this.addPost.value.activityType;
+    this.post.observation = this.addPost.value.observation;
+    this.post.startTime = this.addPost.value.startTime;
+    this.post.endTime = this.addPost.value.endTime;
+
+    this.notebookService.addPostToNotebook(1, this.post).subscribe( res => {
+        console.log(res);
+        //this.getNotebookDetails();
+    },err => {
+        console.log(err);
     });
   }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
 }

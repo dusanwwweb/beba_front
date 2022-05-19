@@ -21,7 +21,6 @@ export class PostListComponent implements OnInit {
 
   handleSuccessfulResponse(response: Post[]) {
     this.posts = response;
-    console.log(response);
   }
 
 }

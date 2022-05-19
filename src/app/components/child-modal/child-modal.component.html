@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Mettre à jour {{ name }}</h4>
+  <h4 class="modal-title">Nouveau bébé</h4>
   <button
     type="button"
     class="btn-close"
@@ -8,22 +8,121 @@
   ></button>
 </div>
 <div class="modal-body">
-  <form>
-
-    <div class="mb-3">
-      <label for="firstName" class="form-label">Prénom</label>
-      <input type="text" class="form-control" id="firstName" placeholder={{name}}/>
-      <div class="form-text">
-        We'll never share your email with anyone else.
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+          id="firstName"
+          name="firstName"
+        />
+        <div class="form-text">Prénom est obligatoire</div>
       </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+          id="lastName"
+          name="lastName"
+        />
+        <div class="form-text">Nom est obligatoire</div>
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Adresse</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="address"
+          id="address"
+          size="50"
+          name="address"
+        />
+        <div class="form-text">Adresse est obligatoire</div>
+      </div>
+      <div class="mb-3">
+        <label for="city" class="form-label">Ville</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="city"
+          id="city"
+          name="city"
+        />
+        <div class="form-text">Ville est obligatoire</div>
+      </div>
+      <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">Date de naissance</label>
+        <div class="input-group">
+          <input
+            id="dateOfBirth"
+            class="form-control"
+            formControlName="dateOfBirth"
+            placeholder="aaaa-mm-jj"
+            name="dp"
+            ngbDatepicker
+            #dp="ngbDatepicker"
+            name="dateOfBirth"
+          />
+          <button
+            class="btn btn-outline-secondary calendar"
+            (click)="dp.toggle()"
+            type="button"
+          >
+            <fa-icon [icon]="farCalendarDays"></fa-icon>
+          </button>
+        </div>
+        <div class="form-text">Date de naissance est obligatoire</div>
+      </div>
+      <!-- <div class="mb-3">
+      <label for="weight" class="form-label">Poids</label>
+      <input type="number" class="form-control" formControlName="weight" id="weight"  step="any" step="0.1" value="3.5" name="weight" />
     </div>
-
     <div class="mb-3">
-      <label for="lastName" class="form-label">Nom</label>
-      <input type="text" class="form-control" id="lastName" />
+      <label for="sex" class="form-label">Sexe</label>
+      <input type="text" class="form-control" formControlName="sex" id="sex" size="1" maxlength="1"  list="sexList" name="sex" />
+      <datalist id="sexList">
+        <option value="m">
+        <option value="f">
+      </datalist>
     </div>
+    <div class="mb-3">
+      <label for="allergyType" class="form-label">Type de allergie</label>
+      <input type="text" class="form-control" formControlName="allergyType" id="allergyType" list="allergyList" name="allergy" /> -->
+      <!-- <datalist *ngFor="let allergy of allergyList" id="allergyList" >
+        <option value="{{allergy}}">
+        <option value="{{allergy[0]}}">
+        <option value="{{allergy[1]}}">
+      </datalist> -->
+      <!-- <datalist id="allergyList" >
+        <option value="GLUTEN">
+        <option value="COWS_MILK">
+        <option value="NUTS">
+        <option value="FISH">
+        <option value="SOYBEAN">
+        <option value="EGG">
+      </datalist>
+    </div>
+    <div class="mb-3">
+      <label for="profilePhoto" class="form-label">Photo de profile</label>
+      <input type="text" class="form-control" formControlName="profilePhoto" id="profilePhoto" size="50" name="photo" />
+    </div>
+    <div class="mb-3">
+      <label for="notebook" class="form-label">Nom du carnet</label>
+      <input type="text" class="form-control" formControlName="notebook" id="notebook" name="notebook" />
+    </div>
+    <div class="mb-3">
+      <label for="parents" class="form-label">Parents</label>
+      <input type="text" class="form-control" formControlName="parents" id="parents" name="parents" />
+    </div> -->
 
-    <button type="submit" class="btn btn-primary">Sauvgarder</button>
+      <button type="submit" class="btn btn-primary">Sauvgarder</button>
+      <!-- <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid" >Sauvgarder</button> -->
+    </div>
   </form>
 </div>
 <div class="modal-footer">

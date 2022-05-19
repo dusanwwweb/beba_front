@@ -27,7 +27,7 @@ export class NotebookService {
   }
 
   public addPostToNotebook(id: number, post: Post): Observable<Notebook> {
-    return this.httpClient.get<Notebook>(`${this.url}/api/notebook/${id}/post`);
+    return this.httpClient.post<Notebook>(`${this.url}/api/notebook/${id}/post`, post);
   }
-
+  
 }

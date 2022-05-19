@@ -1,11 +1,14 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import {  LOCALE_ID, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import * as fr from '@angular/common/locales/fr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { registerLocaleData } from '@angular/common';
-import * as fr from '@angular/common/locales/fr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildListComponent } from './components/child-list/child-list.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,8 +20,6 @@ import { PostModalComponent } from './components/post-modal/post-modal.component
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 import { ChildDetailComponent } from './components/child-detail/child-detail.component';
 import { ChildModalComponent } from './components/child-modal/child-modal.component';
-import { FormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule,
+    FontAwesomeModule,
     Ng2SearchPipeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'}

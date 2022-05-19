@@ -41,7 +41,7 @@ export class ChildDetailComponent implements OnInit {
   }
   
   open() {
-    const modalRef = this.modalService.open(ChildModalComponent);
-    modalRef.componentInstance.name = `${this.child.firstName}`;
+    // const modalRef = this.modalService.open(ChildModalComponent);
+    // modalRef.componentInstance.name = `${this.child.firstName}`;
   }
 }

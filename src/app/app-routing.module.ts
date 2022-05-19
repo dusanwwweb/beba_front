@@ -7,12 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { SectionListComponent } from './components/section-list/section-list.component';
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 import { ChildDetailComponent } from './components/child-detail/child-detail.component';
+import { ChildModalComponent } from './components/child-modal/child-modal.component';
 
 const routes: Routes = [
-  // { 
-  //   path:'**', 
-  //   redirectTo: 'section',
-  // },
+
   { 
     path:'', 
     component: ChildListComponent,
@@ -25,6 +23,10 @@ const routes: Routes = [
   { 
     path:'children/:id', 
     component: ChildDetailComponent,
+  },
+  { 
+    path:'children/add/:id', 
+    component: ChildModalComponent,
   },
   { 
     path:'notebook', 
@@ -49,6 +51,11 @@ const routes: Routes = [
   { 
     path:'section/:id', 
     component: SectionDetailComponent
+  },
+  { 
+    path:'**', 
+    redirectTo: 'section',
+    pathMatch: 'full'
   },
 ];
 

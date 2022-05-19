@@ -26,4 +26,8 @@ export class SectionService {
     return this.httpClient.get<Child[]>(`${this.url}/api/section/${id}/children`)
   }
 
+  public addChildBySectionId(id: number, child: Child): Observable<Child> {
+    return this.httpClient.post<Child>(`${this.url}/api/section/${id}/child`, child);
+  }
+
 }

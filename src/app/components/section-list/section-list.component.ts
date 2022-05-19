@@ -21,7 +21,6 @@ export class SectionListComponent implements OnInit {
 
   handleSuccessfulResponse(response: Section[]) {
     this.sections = response;
-    console.log(response);
   }
 
 }

@@ -49,7 +49,6 @@ export class SectionDetailComponent implements OnInit {
     const date = moment(birthdate, 'DD/MM/YYYY')
     const years = moment().diff(date, 'years')
     const months = moment().diff(date.add(years, 'years'), 'months', false)
-    console.log({ years, months });
     return `${years} ans et ${months} mois`
   }
 }

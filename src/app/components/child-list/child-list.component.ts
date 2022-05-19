@@ -4,6 +4,9 @@ import { Child } from 'src/app/models/child.model';
 import { ChildService } from 'src/app/service/child.service';
 import { Location } from '@angular/common'
 import * as moment from 'moment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChildModalComponent } from '../child-modal/child-modal.component';
+import { AllergyType } from 'src/app/enums/allergyType.enum';
 
 @Component({
   selector: 'app-child-list',
@@ -14,9 +17,14 @@ export class ChildListComponent implements OnInit{
 
   children!: Child[];
   child!: Child;
+  //For Search box
   firstName!: string;
-
-  constructor(private childService: ChildService, private location: Location) { }
+  
+  constructor(
+    private childService: ChildService, 
+    private location: Location,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit() {
     this.childService.getChildren().subscribe(
@@ -26,17 +34,12 @@ export class ChildListComponent implements OnInit{
 
   handleSuccessfulResponse(response: Child[]) {
     this.children = response;
-    console.log(response);
   }
 
-  // addNewChild(): Child{
-  //   return this.childService.addChild(this.child);
-  // }
-
-  open(): void {
-    
+  open() {
+    const modalRef = this.modalService.open(ChildModalComponent);
   }
-
+  
   back(): void {
     this.location.back()
   }
@@ -45,7 +48,6 @@ export class ChildListComponent implements OnInit{
     const date = moment(birthdate, 'DD/MM/YYYY')
     const years = moment().diff(date, 'years')
     const months = moment().diff(date.add(years, 'years'), 'months', false)
-    console.log({ years, months });
     return `${years} ans et ${months} mois`
   }
 }

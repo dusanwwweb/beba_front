@@ -4,6 +4,8 @@ import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
 import { Location } from '@angular/common'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PostModalComponent } from '../post-modal/post-modal.component';
 @Component({
   selector: 'app-notebook-detail',
   templateUrl: './notebook-detail.component.html',
@@ -11,14 +13,14 @@ import { Location } from '@angular/common'
 })
 export class NotebookDetailComponent implements OnInit {
 
-
   posts!: Post[];
   notebook!: Notebook;
   
   constructor(
     private notebookService: NotebookService, 
     private route: ActivatedRoute, 
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -39,9 +41,8 @@ export class NotebookDetailComponent implements OnInit {
     )
   }
   
-  open(){
-    
-    // APPELLE MODALE
+  open() {
+    const modalRef = this.modalService.open(PostModalComponent);
   }
 
   back(): void {

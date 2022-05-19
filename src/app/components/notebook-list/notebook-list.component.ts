@@ -4,6 +4,7 @@ import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
 import { Location } from '@angular/common'
+import { faBookBookmark as farBookBookmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-notebook',
@@ -12,12 +13,11 @@ import { Location } from '@angular/common'
 })
 export class NotebookListComponent implements OnInit {
 
+  // Font Awesome Icon
+  farBookBookmark = farBookBookmark;
+
   notebooks!: Notebook[];
-
-  // notebook!: Notebook;
-
   posts!: Post[];
-
 
   constructor(private notebookService: NotebookService, private location: Location) { }
 
@@ -35,7 +35,6 @@ export class NotebookListComponent implements OnInit {
 
   handleSuccessfulResponse(response: Notebook[]) {
     this.notebooks = response;
-    console.log(response);
   }
 
   back(): void {

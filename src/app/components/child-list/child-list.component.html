@@ -13,13 +13,7 @@
       <tr>
         <th></th>
         <th>nom</th>
-        <!-- <th>adresse</th> -->
         <th>age</th>
-        <!-- <th>poids</th>
-        <th>sexe</th>
-        <th>allergy</th>
-        <th>mis à jour</th>
-        <th>parents</th> -->
         <th>carnet</th>
       </tr>
     </thead>
@@ -28,24 +22,7 @@
       <tr *ngFor="let child of children | filter: firstName" >
         <td><a routerLink="/children/{{ child.id }}" class="notebook-name"><img src="{{ child.profilePhoto }}" /></a></td>
         <td><span>{{ child.firstName }}</span> {{ child.lastName }}</td>
-        <!-- <td>{{ child.address }}, {{ child.city }}</td> -->
         <td>{{calculateAge(child.dateOfBirth)}}</td>
-        <!-- <td>{{ child.weight }}</td>
-        <td>{{ child.sex }}</td>
-        <td>{{ child.allergyType }}</td>
-        <td>{{ child.updated }}</td>
-        <td>
-          <div *ngIf="child.parents[0]">
-            <p>
-              {{ child.parents[0].firstName }} {{ child.parents[0].lastName }}
-            </p>
-          </div>
-          <div *ngIf="child.parents[1]">
-            <p>
-              {{ child.parents[1].firstName }} {{ child.parents[1].lastName }}
-            </p>
-          </div>
-        </td> -->
         <td><a routerLink="/notebook/{{ child.notebook.id }}">{{child.notebook.name}}</a></td>
       </tr>
     </tbody>
@@ -53,6 +30,12 @@
   <div class="d-flex justify-content-between my-4">
     <button class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
+    </button>
+    <!-- <button class="btn btn-sm btn-outline-success">
+      <a routerLink="/children/add/0" >Nouveau bébé</a> 
+    </button> -->
+    <button class="btn btn-sm btn-outline-success" (click)="open()">
+      Nouveau bébé
     </button>
   </div>
 </div>
