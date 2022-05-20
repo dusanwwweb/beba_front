@@ -20,6 +20,7 @@ import { PostModalComponent } from './components/post-modal/post-modal.component
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 import { ChildDetailComponent } from './components/child-detail/child-detail.component';
 import { ChildModalComponent } from './components/child-modal/child-modal.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ChildModalComponent } from './components/child-modal/child-modal.compon
     PostModalComponent,
     SectionDetailComponent,
     ChildDetailComponent,
-    ChildModalComponent
+    ChildModalComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class SectionService {
   }
 
   public getChildrenBySectionId(id: number): Observable<Child[]> {
-    return this.httpClient.get<Child[]>(`${this.url}/api/section/${id}/children`)
+    return this.httpClient.get<Child[]>(`${this.url}/api/section/${id}/children`);
   }
 
   public addChildBySectionId(id: number, child: Child): Observable<Child> {

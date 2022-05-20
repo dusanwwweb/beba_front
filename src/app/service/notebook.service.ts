@@ -19,7 +19,7 @@ export class NotebookService {
   }
 
   public getPostsById(id: number): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${this.url}/api/notebook/${id}/posts`)
+    return this.httpClient.get<Post[]>(`${this.url}/api/notebook/${id}/posts`);
   }
 
   public getNotebooks(): Observable<Notebook[]> {
@@ -28,6 +28,10 @@ export class NotebookService {
 
   public addPostToNotebook(id: number, post: Post): Observable<Notebook> {
     return this.httpClient.post<Notebook>(`${this.url}/api/notebook/${id}/post`, post);
+  }
+
+  public removePostFromNotebook(notebookId: number, postId: number): Observable<Notebook> {
+    return this.httpClient.put<Notebook>(`${this.url}/api/notebook/${notebookId}/post/${postId}`, notebookId);
   }
   
 }

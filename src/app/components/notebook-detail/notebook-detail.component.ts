@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
 import { Location } from '@angular/common'
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostModalComponent } from '../post-modal/post-modal.component';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 @Component({
   selector: 'app-notebook-detail',
   templateUrl: './notebook-detail.component.html',
@@ -41,12 +42,33 @@ export class NotebookDetailComponent implements OnInit {
     )
   }
   
-  open() {
+  openNoteModal() {
+    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
+    //SEND THE NOTEBOOK ID !!
     const modalRef = this.modalService.open(PostModalComponent);
   }
+  
+  // confirmOpen() {
+  //   const deleteModal = this.modalService.open(DeleteModalComponent);
+  // }
 
   back(): void {
     this.location.back()
   }
 
+  deletePost(postId: number){
+
+    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log("Notebook Id " + notebookId);
+    
+    this.notebookService.removePostFromNotebook(notebookId, postId).subscribe( res =>{
+      console.log(res);
+      alert('Note supprimée avec success');
+    },err => {
+      console.log(err);
+    });
+  }
+
+  editPost(postId: number){}
+  
 }

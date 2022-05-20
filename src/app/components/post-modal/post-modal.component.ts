@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { ActivityType } from 'src/app/enums/activityType.enum';
-import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
 import { PostService } from 'src/app/service/post.service';
@@ -19,10 +18,7 @@ export class PostModalComponent implements OnInit{
   addPost!: FormGroup;
 
   post: Post = new Post();
-  posts!: Post[];
 
-  id: any;
-  // notebook!: Notebook;
   //Enum 
   //activityList = Object.keys(ActivityType);
 
@@ -35,16 +31,18 @@ export class PostModalComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+
     this.addPost = this.formBuilder.group({
       activityType: [''],
       observation: [''],
       startTime: [''],
       endTime: ['']
     })
-
+    
     // this.route.paramMap.subscribe((() => {
     //   this.onSubmit();
     // }))
+
     // console.log(this.activityList);
   }
   
@@ -60,7 +58,7 @@ export class PostModalComponent implements OnInit{
     this.post.startTime = this.addPost.value.startTime;
     this.post.endTime = this.addPost.value.endTime;
 
-    this.notebookService.addPostToNotebook(1, this.post).subscribe( res => {
+    this.notebookService.addPostToNotebook(notebookId, this.post).subscribe( res => {
         console.log(res);
         //this.getNotebookDetails();
     },err => {
