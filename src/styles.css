@@ -15,5 +15,5 @@ a:active { text-decoration: none; color: black; font-weight: 600;}
 
 h3{
     font-weight: 600;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }

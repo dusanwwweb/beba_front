@@ -47,11 +47,27 @@ export class NotebookDetailComponent implements OnInit {
   }
   
   openNoteModal() {
-    const modalRef = this.modalService.open(PostModalComponent);
+    this.modalService.open(PostModalComponent);
   }
+  
 
   openPostModal() {
-    const modalRef = this.modalService.open(UpdatePostComponent);
+    const modalRef = this.modalService.open(UpdatePostComponent,
+      {
+        scrollable: true,
+        windowClass: 'myCustomModalClass',
+        // keyboard: false,
+        // backdrop: 'static'
+      });
+
+    let data = {
+      id: Number(this.route.snapshot.paramMap.get('id')),
+    }
+
+    modalRef.componentInstance.fromParent = data;
+    modalRef.result.then((result) => {
+      console.log(result);
+    }, (reason) => {});
   }
 
   back(): void {
@@ -60,8 +76,8 @@ export class NotebookDetailComponent implements OnInit {
 
   deletePost(postId:number){
     this.postService.deletePost(postId).subscribe( response => {
-         this.posts = this.posts.filter(item => item.id !== postId);
-         alert('Note supprimée avec success');
+      this.posts = this.posts.filter(item => item.id !== postId);
+      alert('Note supprimée avec success');
     }, err => {
       console.log(err);
     });
