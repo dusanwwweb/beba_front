@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { ActivityType } from 'src/app/enums/activityType.enum';
@@ -15,7 +15,7 @@ import { PostService } from 'src/app/service/post.service';
 export class PostModalComponent implements OnInit{
 
   //Form
-  addPost!: FormGroup;
+  formPost!: FormGroup;
 
   post: Post = new Post();
 
@@ -32,12 +32,20 @@ export class PostModalComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.addPost = this.formBuilder.group({
-      activityType: [''],
-      observation: [''],
-      startTime: [''],
-      endTime: ['']
-    })
+    // this.formPost = this.formBuilder.group({
+    //   id: [],
+    //   activityType: [''],
+    //   observation: [''],
+    //   startTime: [''],
+    //   endTime: ['']
+    // })
+
+    this.formPost = new FormGroup({
+      activityType: new FormControl(''),
+      observation: new FormControl(''),
+      startTime: new FormControl(''),
+      endTime: new FormControl('')
+    });
     
     // this.route.paramMap.subscribe((() => {
     //   this.onSubmit();
@@ -47,22 +55,18 @@ export class PostModalComponent implements OnInit{
   }
   
   onSubmit(){
-    console.log(this.addPost);
-    console.warn(this.addPost.value);
-
-    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log("ID " + notebookId);
+    // console.log(this.formPost);
+    console.warn(this.formPost.value);
     
-    this.post.activityType = this.addPost.value.activityType;
-    this.post.observation = this.addPost.value.observation;
-    this.post.startTime = this.addPost.value.startTime;
-    this.post.endTime = this.addPost.value.endTime;
+    // this.post.activityType = this.formPost.value.activityType;
+    // this.post.observation = this.formPost.value.observation;
+    // this.post.startTime = this.formPost.value.startTime;
+    // this.post.endTime = this.formPost.value.endTime;
 
-    this.notebookService.addPostToNotebook(notebookId, this.post).subscribe( res => {
-        console.log(res);
-        //this.getNotebookDetails();
-    },err => {
-        console.log(err);
+    this.postService.addPost(this.formPost.value).
+    subscribe((res:any) => {
+      console.log('Post created successfully!');
+      this.route.parent;
     });
   }
 }

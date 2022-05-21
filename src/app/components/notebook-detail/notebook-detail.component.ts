@@ -7,6 +7,9 @@ import { Location } from '@angular/common'
 import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostModalComponent } from '../post-modal/post-modal.component';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { PostService } from 'src/app/service/post.service';
+import { UpdatePostComponent } from '../update-post/update-post.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-notebook-detail',
   templateUrl: './notebook-detail.component.html',
@@ -19,9 +22,10 @@ export class NotebookDetailComponent implements OnInit {
   
   constructor(
     private notebookService: NotebookService, 
+    private postService: PostService,
     private route: ActivatedRoute, 
     private location: Location,
-    private modalService: NgbModal
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit(): void {
@@ -43,32 +47,25 @@ export class NotebookDetailComponent implements OnInit {
   }
   
   openNoteModal() {
-    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
-    //SEND THE NOTEBOOK ID !!
     const modalRef = this.modalService.open(PostModalComponent);
   }
-  
-  // confirmOpen() {
-  //   const deleteModal = this.modalService.open(DeleteModalComponent);
-  // }
+
+  openPostModal() {
+    const modalRef = this.modalService.open(UpdatePostComponent);
+  }
 
   back(): void {
     this.location.back()
   }
 
-  deletePost(postId: number){
-
-    const notebookId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log("Notebook Id " + notebookId);
-    
-    this.notebookService.removePostFromNotebook(notebookId, postId).subscribe( res =>{
-      console.log(res);
-      alert('Note supprimée avec success');
-    },err => {
+  deletePost(postId:number){
+    this.postService.deletePost(postId).subscribe( response => {
+         this.posts = this.posts.filter(item => item.id !== postId);
+         alert('Note supprimée avec success');
+    }, err => {
       console.log(err);
     });
   }
-
-  editPost(postId: number){}
   
 }
+

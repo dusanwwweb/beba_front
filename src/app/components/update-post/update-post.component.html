@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h4 class="modal-title">Mettre à jour la note</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updatePost" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="mb-3">
+          <label for="activityType" class="form-label">Type d'activité</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="activityType"
+            id="activityType"
+            name="activityType"
+            list="activityList"
+          />
+          <datalist id="activityList">
+            <option value="AWAKE">
+            <option value="REST">
+            <option value="EAT">
+            <option value="STOOL">
+            <option value="CRY">
+            <option value="CHANGE">
+          </datalist>
+        </div>
+        <div class="mb-3">
+          <label for="observation" class="form-label">Observation</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="observation"
+            id="observation"
+            name="observation"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="startTime" class="form-label">Début</label>
+          <input
+            type="time"
+            class="form-control"
+            formControlName="startTime"
+            id="startTime"
+            name="startTime"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="endTime" class="form-label">Fin</label>
+          <input
+            type="time"
+            class="form-control"
+            formControlName="endTime"
+            id="endTime"
+            name="endTime"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvgarder</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+  
