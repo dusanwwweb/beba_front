@@ -80,7 +80,6 @@ export class NotebookDetailComponent implements OnInit {
   }
 
   updatePost(id: number){
-    //this.notebook.id = Number(this.route.snapshot.paramMap.get('id')),
     this.router.navigate(['post', id]);
   }
   

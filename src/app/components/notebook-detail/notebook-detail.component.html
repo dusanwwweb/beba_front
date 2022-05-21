@@ -32,7 +32,7 @@
     <!-- <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="openPostModal()">
       Nouvelle note
     </button> -->
-    <button routerLink="post" type="button" class="btn btn-sm btn-outline-primary me-2">
+    <button [routerLink]="['/notebook',notebook?.id,'post']" routerLinkActive="active" type="button" class="btn btn-sm btn-outline-primary me-2">
       <!-- <a  routerLinkActive="active" >Nouvelle note</a> -->
       Nouvelle note
     </button>

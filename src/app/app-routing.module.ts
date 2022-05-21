@@ -47,7 +47,7 @@ const routes: Routes = [
     component: NotebookDetailComponent
   },
   {
-    path: 'post', 
+    path: 'notebook/:id/post', 
     component: CreatePostComponent
   },
   {
