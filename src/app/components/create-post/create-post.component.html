@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+      <h3 class="text-center">Nouvelle note</h3>
+      <hr />
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="mb-3">
+              <label for="activityType" class="form-label"
+                >Type d'activité</label
+              >
+              <input
+                [(ngModel)]="post.activityType"
+                type="text"
+                class="form-control"
+                id="activityType"
+                name="activityType"
+                list="activityList"
+              />
+              <datalist id="activityList">
+                <option value="AWAKE"></option>
+                <option value="REST"></option>
+                <option value="EAT"></option>
+                <option value="STOOL"></option>
+                <option value="CRY"></option>
+                <option value="CHANGE"></option>
+              </datalist>
+            </div>
+            <div class="mb-3">
+              <label for="observation" class="form-label">Observation</label>
+              <input
+                [(ngModel)]="post.observation"
+                type="text"
+                class="form-control"
+                id="observation"
+                name="observation"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="startTime" class="form-label">Début</label>
+              <input
+                [(ngModel)]="post.startTime"
+                type="time"
+                class="form-control"
+                id="startTime"
+                name="startTime"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="endTime" class="form-label">Fin</label>
+              <input
+                [(ngModel)]="post.endTime"
+                type="time"
+                class="form-control"
+                id="endTime"
+                name="endTime"
+              />
+            </div>
+            <br />
+            <button class="btn btn-success" type="submit">Sauvgarder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

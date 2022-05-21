@@ -1,63 +1,71 @@
-<div class="modal-header">
-    <h4 class="modal-title">Mettre à jour la note</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="updatePost" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <div class="mb-3">
-          <label for="activityType" class="form-label">Type d'activité</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="activityType"
-            id="activityType"
-            name="activityType"
-            list="activityList"
-          />
-          <datalist id="activityList">
-            <option value="AWAKE">
-            <option value="REST">
-            <option value="EAT">
-            <option value="STOOL">
-            <option value="CRY">
-            <option value="CHANGE">
-          </datalist>
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+      <div class="row">
+        <h3 class="text-center">Mettre la jour la note</h3>
+        <hr />
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <div class="mb-3">
+                <label for="activityType" class="form-label"
+                  >Type d'activité</label
+                >
+                <input
+                  [(ngModel)]="post.activityType"
+                  type="text"
+                  class="form-control"
+                  id="activityType"
+                  name="activityType"
+                  list="activityList"
+                />
+                <datalist id="activityList">
+                  <option value="AWAKE"></option>
+                  <option value="REST"></option>
+                  <option value="EAT"></option>
+                  <option value="STOOL"></option>
+                  <option value="CRY"></option>
+                  <option value="CHANGE"></option>
+                </datalist>
+              </div>
+              <div class="mb-3">
+                <label for="observation" class="form-label">Observation</label>
+                <input
+                  [(ngModel)]="post.observation"
+                  type="text"
+                  class="form-control"
+                  id="observation"
+                  name="observation"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Début</label>
+                <input
+                  [(ngModel)]="post.startTime"
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  name="startTime"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">Fin</label>
+                <input
+                  [(ngModel)]="post.endTime"
+                  type="time"
+                  class="form-control"
+                  id="endTime"
+                  name="endTime"
+                />
+              </div>
+              <br />
+              <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">Retour</button>
+              <button class="btn btn-success" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="mb-3">
-          <label for="observation" class="form-label">Observation</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="observation"
-            id="observation"
-            name="observation"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="startTime" class="form-label">Début</label>
-          <input
-            type="time"
-            class="form-control"
-            formControlName="startTime"
-            id="startTime"
-            name="startTime"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="endTime" class="form-label">Fin</label>
-          <input
-            type="time"
-            class="form-control"
-            formControlName="endTime"
-            id="endTime"
-            name="endTime"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Sauvgarder</button>
       </div>
-    </form>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-  </div>
+  

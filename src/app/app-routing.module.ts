@@ -8,13 +8,23 @@ import { SectionListComponent } from './components/section-list/section-list.com
 import { SectionDetailComponent } from './components/section-detail/section-detail.component';
 import { ChildDetailComponent } from './components/child-detail/child-detail.component';
 import { ChildModalComponent } from './components/child-modal/child-modal.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { UpdatePostComponent } from './components/update-post/update-post.component';
 
 const routes: Routes = [
 
   { 
     path:'', 
-    component: ChildListComponent,
+    component: SectionListComponent,
     pathMatch: 'full'
+  },
+  { 
+    path:'section', 
+    component: SectionListComponent
+  },
+  { 
+    path:'section/:id', 
+    component: SectionDetailComponent
   },
   { 
     path:'children', 
@@ -36,22 +46,22 @@ const routes: Routes = [
     path:'notebook/:id', 
     component: NotebookDetailComponent
   },
-  { 
-    path:'post/:id', 
-    component: PostListComponent
+  {
+    path: 'post', 
+    component: CreatePostComponent
   },
-  { 
-    path:'post', 
-    component: PostListComponent
+  {
+    path: 'post/:id', 
+    component: UpdatePostComponent
   },
-  { 
-    path:'section', 
-    component: SectionListComponent
-  },
-  { 
-    path:'section/:id', 
-    component: SectionDetailComponent
-  },
+  // { 
+  //   path:'post/:id', 
+  //   component: PostListComponent
+  // },
+  // { 
+  //   path:'post', 
+  //   component: PostListComponent
+  // },
   { 
     path:'**', 
     redirectTo: 'section',

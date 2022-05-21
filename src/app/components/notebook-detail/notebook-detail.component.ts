@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
@@ -24,6 +24,7 @@ export class NotebookDetailComponent implements OnInit {
     private notebookService: NotebookService, 
     private postService: PostService,
     private route: ActivatedRoute, 
+    private router: Router,
     private location: Location,
     private modalService: NgbModal,
   ) { }
@@ -45,17 +46,12 @@ export class NotebookDetailComponent implements OnInit {
       response => {this.posts = response}
     )
   }
-  
-  openNoteModal() {
-    this.modalService.open(PostModalComponent);
-  }
-  
 
   openPostModal() {
-    const modalRef = this.modalService.open(UpdatePostComponent,
+    const modalRef = this.modalService.open(PostModalComponent,
       {
         scrollable: true,
-        windowClass: 'myCustomModalClass',
+        //windowClass: 'myCustomModalClass',
         // keyboard: false,
         // backdrop: 'static'
       });
@@ -81,6 +77,11 @@ export class NotebookDetailComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  updatePost(id: number){
+    //this.notebook.id = Number(this.route.snapshot.paramMap.get('id')),
+    this.router.navigate(['post', id]);
   }
   
 }

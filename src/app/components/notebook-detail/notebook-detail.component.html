@@ -1,6 +1,5 @@
 <div class=" container table-responsive">
   <h3 class="mb-4">{{ notebook?.name }}</h3>
-  <!-- PROBLEME AVEC {{ notebook.name }}< -->
   <table class="table table-hover border-success">
     <thead>
       <tr>
@@ -20,6 +19,7 @@
         <td>{{ post.startTime }}</td>
         <td>{{ post.endTime }}</td>
         <td class="d-flex justify-content-end">
+          <button type="button"class="btn btn-primary" (click)="updatePost(post.id)">Modifier</button>
           <button type="button" class="btn btn-sm btn-outline-danger" (click)="deletePost(post.id)">Supprimer</button>
       </td>
       </tr>
@@ -29,7 +29,11 @@
     <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
     </button>
-    <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="openPostModal()">
+    <!-- <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="openPostModal()">
+      Nouvelle note
+    </button> -->
+    <button routerLink="post" type="button" class="btn btn-sm btn-outline-primary me-2">
+      <!-- <a  routerLinkActive="active" >Nouvelle note</a> -->
       Nouvelle note
     </button>
   </div>

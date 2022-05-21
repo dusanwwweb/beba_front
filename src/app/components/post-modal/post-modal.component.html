@@ -1,9 +1,9 @@
 <div class="modal-header">
-  <h4 class="modal-title">Nouvelle note</h4>
+  <h4 class="modal-title">Mettre à jour la note</h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
 <div class="modal-body">
-  <form [formGroup]="formPost" (ngSubmit)="onSubmit()">
+  <form [formGroup]="postModal" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <div class="mb-3">
         <label for="activityType" class="form-label">Type d'activité</label>
@@ -54,16 +54,6 @@
           name="endTime"
         />
       </div>
-      <!-- <div class="mb-3">
-        <label for="notebook" class="form-label">Carnet</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="notebook"
-          id="notebook"
-          name="notebook"
-        />
-      </div> -->
       <button type="submit" class="btn btn-primary">Sauvgarder</button>
     </div>
   </form>

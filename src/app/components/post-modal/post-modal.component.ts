@@ -13,53 +13,34 @@ import { PostService } from 'src/app/service/post.service';
   styleUrls: ['./post-modal.component.css']
 })
 export class PostModalComponent implements OnInit{
-  
-  //Form
-  formPost!: FormGroup;
 
-  post: Post = new Post();
+  postModal!: FormGroup;
 
-  //Enum 
-  //activityList = Object.keys(ActivityType);
+  //Passing from the parent (notebook detail component)
+  @Input() fromParent: any;
 
-  constructor(
+  constructor( 
     public activeModal: NgbActiveModal, 
-    private formBuilder: FormBuilder,
+    private postService: PostService,
+    private notebookService: NotebookService, 
     private route: ActivatedRoute,
-    private postService: PostService
-  ) {}
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-
-    this.formPost = this.formBuilder.group({
-      id: [],
-      activityType: [''],
-      observation: [''],
-      startTime: [''],
-      endTime: ['']
-    })
-
-    // this.formPost = new FormGroup({
-    //   activityType: new FormControl(''),
-    //   observation: new FormControl(''),
-    //   startTime: new FormControl(''),
-    //   endTime: new FormControl('')
-    // });
-    
-    // console.log(this.activityList);
-
-    // closeModal(sendData) {
-    //   this.activeModal.close(sendData);
-    // }
-  }
-  
-  onSubmit(){
-    console.warn(this.formPost.value);
-    
-    this.postService.addPost(this.formPost.value).
-    subscribe(( res: any) => {
-      console.log('Post created successfully!');
-      //this.route.parent;
+    this.postModal = new FormGroup({
+      activityType: new FormControl(''),
+      observation: new FormControl(''),
+      startTime: new FormControl(''),
+      endTime: new FormControl('')
     });
+  }
+
+  onSubmit(){
+    console.log(this.postModal.value);
+    this.notebookService.addPostToNotebook(this.fromParent.id, this.postModal.value).subscribe((res:any) => {
+      console.log('Post updated successfully!');
+      this.router.navigate(['/notebook', this.fromParent.id]);
+    })
   }
 }

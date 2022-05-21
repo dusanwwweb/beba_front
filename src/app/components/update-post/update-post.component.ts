@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
-import { NotebookService } from 'src/app/service/notebook.service';
 import { PostService } from 'src/app/service/post.service';
+import { Location } from '@angular/common'
+import { Notebook } from 'src/app/models/notebook.model';
 
 @Component({
   selector: 'app-update-post',
@@ -14,34 +12,39 @@ import { PostService } from 'src/app/service/post.service';
 })
 export class UpdatePostComponent implements OnInit {
 
-  updatePost!: FormGroup;
+  //@Input() notebook!: Notebook;
 
-  //Passing from the parent (notebook detail component)
-  @Input() fromParent: any;
+  id!: number;
+  post: Post = new Post();
 
-  constructor( 
-    public activeModal: NgbActiveModal, 
+  constructor(
     private postService: PostService,
-    private notebookService: NotebookService, 
     private route: ActivatedRoute,
-    private router: Router
-    ) { }
+    private router: Router,
+    private location: Location,
+  ) { }
 
   ngOnInit(): void {
-    this.updatePost = new FormGroup({
-      activityType: new FormControl(''),
-      observation: new FormControl(''),
-      startTime: new FormControl(''),
-      endTime: new FormControl('')
-    });
+    this.id = this.route.snapshot.params['id'];
+
+    this.postService.getPostById(this.id).subscribe(data => {
+      this.post = data;
+    }, error => console.log(error));
   }
 
   onSubmit(){
-    console.log(this.updatePost.value);
-    this.notebookService.addPostToNotebook(this.fromParent.id, this.updatePost.value).subscribe((res:any) => {
-      console.log('Post updated successfully!');
-      this.router.navigate(['/notebook', this.fromParent.id]);
-    })
+    this.postService.updatePost(this.id, this.post).subscribe( data =>{
+      this.goToPostList();
+    }, error => console.log(error));
+  }
+
+  goToPostList(){
+    // this.router.navigate(['/notebook']);
+    // this.router.navigate(['/notebook', this.notebook.id]);
+    this.location.back()
   }
   
+  back(): void {
+    this.location.back()
+  }
 }
