@@ -12,14 +12,12 @@
     <tbody>
       <tr *ngFor="let notebook of notebooks">
         <td>
-          <a routerLink="/notebook/{{ notebook.id }}" class="notebook-name">{{
-            notebook.name
-          }}</a>
+          <a routerLink="/notebook/{{ notebook.id }}" class="notebook-name">{{notebook.name}}</a>
         </td>
         <td>{{ notebook.created | date: "shortDate" }}</td>
         <td *ngIf="notebook.posts">{{ notebook.posts?.length || "0" }}</td>
         <button
-        type="button"
+          type="button"
           class="btn btn-sm btn-outline-success"
           routerLink="/notebook/{{ notebook.id }}" 
         >

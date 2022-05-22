@@ -1,5 +1,4 @@
 import { NotebookDetailComponent } from './components/notebook-detail/notebook-detail.component';
-import { PostListComponent } from './components/post-list/post-list.component';
 import { ChildListComponent } from './components/child-list/child-list.component';
 import { NotebookListComponent } from './components/notebook-list/notebook-list.component';
 import { NgModule } from '@angular/core';
@@ -54,14 +53,6 @@ const routes: Routes = [
     path: 'post/:id', 
     component: UpdatePostComponent
   },
-  // { 
-  //   path:'post/:id', 
-  //   component: PostListComponent
-  // },
-  // { 
-  //   path:'post', 
-  //   component: PostListComponent
-  // },
   { 
     path:'**', 
     redirectTo: 'section',

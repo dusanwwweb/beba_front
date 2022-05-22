@@ -1,7 +1,7 @@
 <div class="row">
     <div class="card col-md-6 offset-md-3 offset-md-3">
       <div class="row">
-        <h3 class="text-center">Mettre la jour la note</h3>
+        <h3 class="text-left">Mettre à jour</h3>
         <hr />
         <div class="card-body">
           <form (ngSubmit)="onSubmit()">
@@ -37,7 +37,7 @@
                   name="observation"
                 />
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="startTime" class="form-label">Début</label>
                 <input
                   [(ngModel)]="post.startTime"
@@ -56,11 +56,11 @@
                   id="endTime"
                   name="endTime"
                 />
-              </div>
+              </div> -->
               <br />
               <div class="d-flex justify-content-between">
               <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">Retour</button>
-              <button class="btn btn-success" type="submit">Submit</button>
+              <button class="btn btn-sm btn-outline-primary" type="submit">Sauvgarder</button>
               </div>
             </div>
           </form>

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/models/post.model';
 import { PostService } from 'src/app/service/post.service';
 import { Location } from '@angular/common'
-import { Notebook } from 'src/app/models/notebook.model';
 
 @Component({
   selector: 'app-update-post',
@@ -12,16 +11,13 @@ import { Notebook } from 'src/app/models/notebook.model';
 })
 export class UpdatePostComponent implements OnInit {
 
-  //@Input() notebook!: Notebook;
-
   id!: number;
   post: Post = new Post();
 
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
-    private router: Router,
-    private location: Location,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -39,8 +35,6 @@ export class UpdatePostComponent implements OnInit {
   }
 
   goToPostList(){
-    // this.router.navigate(['/notebook']);
-    // this.router.navigate(['/notebook', this.notebook.id]);
     this.location.back()
   }
   

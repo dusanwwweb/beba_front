@@ -1,5 +1,5 @@
 <div class="container table-responsive mb-5">
-  <h3>{{ section.name }}</h3>
+  <h3>{{ section?.name }}</h3>
   <div class="row align-items-center justify-content-between">
     <div class="col-2">
       <label for="firstName"></label>
@@ -42,5 +42,8 @@
     <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
     </button>
+    <!-- <button class="btn btn-sm btn-outline-success" (click)="open()">
+      Nouveau bébé
+    </button> -->
   </div>
 </div>

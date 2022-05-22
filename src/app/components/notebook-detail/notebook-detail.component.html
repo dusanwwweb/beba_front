@@ -3,37 +3,32 @@
   <table class="table table-hover border-success">
     <thead>
       <tr>
-        <!-- <th>id</th>
-        <th>activité</th> -->
+        <th>activité</th> 
         <th>observation</th>
-        <th>début</th>
-        <th>fin</th>
+        <th>création</th>
+        <th>modification</th>
       </tr>
     </thead>
     
     <tbody>
       <tr *ngFor="let post of posts">
-        <!-- <td>{{ post.id }}</td>
-        <td>{{ post.activityType }}</td> -->
+        <!-- <td>1</td> -->
+        <td>{{ post.activityType }}</td>
         <td>{{ post.observation }}</td>
-        <td>{{ post.startTime }}</td>
-        <td>{{ post.endTime }}</td>
+        <td>{{ post.startTime | date: "HH:mm" }}</td>
+        <td>{{ post.endTime | date: "HH:mm" }}</td>
         <td class="d-flex justify-content-end">
-          <button type="button"class="btn btn-primary" (click)="updatePost(post.id)">Modifier</button>
+          <button type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</button>
           <button type="button" class="btn btn-sm btn-outline-danger" (click)="deletePost(post.id)">Supprimer</button>
       </td>
       </tr>
     </tbody>
   </table>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between my-5">
     <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">
       Retour
     </button>
-    <!-- <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="openPostModal()">
-      Nouvelle note
-    </button> -->
-    <button [routerLink]="['/notebook',notebook?.id,'post']" routerLinkActive="active" type="button" class="btn btn-sm btn-outline-primary me-2">
-      <!-- <a  routerLinkActive="active" >Nouvelle note</a> -->
+    <button type="button" class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/notebook',notebook?.id,'post']" routerLinkActive="active">
       Nouvelle note
     </button>
   </div>

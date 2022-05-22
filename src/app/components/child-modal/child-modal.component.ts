@@ -3,8 +3,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { faCalendarDays as farCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AllergyType } from 'src/app/enums/allergyType.enum';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChildService } from 'src/app/service/child.service';
+import { SectionService } from 'src/app/service/section.service';
 
 
 @Component({
@@ -24,15 +25,19 @@ export class ChildModalComponent implements OnInit {
   //Reactive forms
   addForm!: FormGroup;
 
+  //Passing from the parent (section detail component)
+  @Input() fromParent: any;
+
   constructor(
     public activeModal: NgbActiveModal, 
     private childService: ChildService,
+    private sectionService: SectionService, 
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) {}
     
   ngOnInit(): void {
-
     this.addForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -48,19 +53,13 @@ export class ChildModalComponent implements OnInit {
       // parents: ['']
     });
 
-    // console.log(this.allergyList);
-    // console.log(this.allergyList[0]);    
-    // console.log(this.allergyList[1]);    
-    // console.log(this.allergyList[2]);   
+    // console.log(this.allergyList); 
   }
 
   onSubmit(){
-    this.childService.addChild(this.addForm.value)
-      .subscribe(data => {
-        console.warn(this.addForm.value);
-        this.router.navigate(['children']);
+    this.sectionService.addChildBySectionId(this.fromParent.id, this.addForm.value).subscribe(data => {
+        console.log(this.addForm.value);
+        this.router.navigate(['/section', this.fromParent.id]);
       });
   }
-
-
 }

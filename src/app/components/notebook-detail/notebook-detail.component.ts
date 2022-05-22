@@ -6,10 +6,10 @@ import { NotebookService } from 'src/app/service/notebook.service';
 import { Location } from '@angular/common'
 import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostModalComponent } from '../post-modal/post-modal.component';
-import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 import { PostService } from 'src/app/service/post.service';
 import { UpdatePostComponent } from '../update-post/update-post.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivityType } from 'src/app/enums/activityType.enum';
 @Component({
   selector: 'app-notebook-detail',
   templateUrl: './notebook-detail.component.html',
@@ -19,6 +19,10 @@ export class NotebookDetailComponent implements OnInit {
 
   posts!: Post[];
   notebook!: Notebook;
+
+  //Enum 
+  activityList = Object.values(ActivityType);
+  activityType: Array<string> = Object.values(ActivityType).filter(value => isNaN(+value));
   
   constructor(
     private notebookService: NotebookService, 
@@ -33,6 +37,9 @@ export class NotebookDetailComponent implements OnInit {
     this.route.paramMap.subscribe((() => {
       this.getNotebookDetails();
     }))
+
+    console.log(this.activityList);
+    
   }
 
   getNotebookDetails() {
