@@ -17,15 +17,20 @@
 
         <!-- Link -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/section">Sections</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/section">Sections</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/children">Bébés</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/children">Bébés</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/notebook">Carnets</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/notebook">Carnets</a>
         </li>
-        
+        <li class="nav-item">
+          <a *ngIf="!authService.isEmployeeLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="authService.isEmployeeLoggedIn()" routerLink="/logout" class="nav-link">Logout</a>
+        </li> 
       </ul>
 
     </div>

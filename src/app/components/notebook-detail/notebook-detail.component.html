@@ -15,8 +15,8 @@
         <!-- <td>1</td> -->
         <td>{{ post.activityType }}</td>
         <td>{{ post.observation }}</td>
-        <td>{{ post.startTime | date: "HH:mm" }}</td>
-        <td>{{ post.endTime | date: "HH:mm" }}</td>
+        <td>{{ post.startTime | date: 'd MMMM y à HH:mm' }}h</td>
+        <td>{{ post.endTime | date:  'd MMMM y à HH:mm' }}h</td>
         <td class="d-flex justify-content-end">
           <button type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</button>
           <button type="button" class="btn btn-sm btn-outline-danger" (click)="deletePost(post.id)">Supprimer</button>

@@ -21,6 +21,8 @@ import { ChildDetailComponent } from './components/child-detail/child-detail.com
 import { ChildModalComponent } from './components/child-modal/child-modal.component';
 import { UpdatePostComponent } from './components/update-post/update-post.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { LogoutComponent } from './components/auth/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     ChildDetailComponent,
     ChildModalComponent,
     UpdatePostComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
