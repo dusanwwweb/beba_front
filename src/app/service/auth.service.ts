@@ -2,18 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Employee } from '../models/employee.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-  //private readonly url = environment.apiBaseUrl;
+  private readonly url = environment.apiBaseUrl;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  public loginUser(employee: Employee): Observable<Employee> {
+    return this.httpClient.post<Employee>(`${this.url}/auth/login/user`, employee);
+  }
 
   public authenticate(email: string, password: string) {
-    if (email === "alexmartin@beba.com" && password === "pass") {
+    if (email === "alex@beba.com" && password === "pass") {
       sessionStorage.setItem('email', email)
       return true;
     } else {
@@ -23,7 +28,6 @@ export class AuthService {
 
   public isEmployeeLoggedIn() {
     let employee = sessionStorage.getItem('email')
-    // console.log(!(employee === null))
     return !(employee === null)
   }
 

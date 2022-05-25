@@ -26,10 +26,8 @@ export class CreatePostComponent implements OnInit {
 
   savepost(){
     this.notebookService.addPostToNotebook(this.id, this.post).subscribe( data =>{
-      console.log(data);
       this.goToPostList();
-    },
-    error => console.log(error));
+    })
   }
 
   goToPostList(){
@@ -37,8 +35,8 @@ export class CreatePostComponent implements OnInit {
   }
   
   onSubmit(){
-    console.log(this.id);
-    console.log(this.post);
+    // console.log(this.id);
+    // console.log(this.post);
     this.savepost();
   }
 

@@ -1,11 +1,3 @@
-<!-- <div class="container">
-  <div> 
-    User Name : <input type="text" name="email" [(ngModel)]="email" /> 
-    Password: <input type="password" name="password" [(ngModel)]="password" />
-  </div>
-  <button (click)="checkLogin()" class="btn btn-success">Login</button>
-</div> -->
-
 <div class="container col-lg-6">
     <h1 class="text-left mb-3">Connexion</h1>
     <div class="card">
@@ -15,12 +7,12 @@
           <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div> -->
           <div class="form-group mb-3">
             <label for="email">Email </label>
-            <input type="text" class="form-control" id="email" [(ngModel)]="email" placeholder="Email"
+            <input type="text" class="form-control" id="email" [(ngModel)]="employee.email" placeholder="Email"
               name="email">
           </div>
           <div class="form-group mb-5">
             <label for="pwd">Mot de passe </label>
-            <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Mot de passe"
+            <input type="password" class="form-control" [(ngModel)]="employee.password" id="password" placeholder="Mot de passe"
               name="password">
           </div>
           <button (click)="checkLogin()" class="btn btn-success">Connexion</button>

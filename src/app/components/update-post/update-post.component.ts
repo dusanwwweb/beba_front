@@ -25,13 +25,13 @@ export class UpdatePostComponent implements OnInit {
 
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
-    }, error => console.log(error));
+    });
   }
 
   onSubmit(){
     this.postService.updatePost(this.id, this.post).subscribe( data =>{
       this.goToPostList();
-    }, error => console.log(error));
+    });
   }
 
   goToPostList(){

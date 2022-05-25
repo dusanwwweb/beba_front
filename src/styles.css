@@ -2,6 +2,13 @@
 
 :root {
     --main-bg-color: #4cc8b3;
+    --awake-bg-color: #F8DFD3;
+    --rest-bg-color: #90D9C9;
+    --eat-bg-color: #D3ECF8;
+    --stool-bg-color:#ECF8D3 ;
+    --cry-bg-color: #F3C0BD;
+    --change-bg-color: #DFD3F8;
+
 }
 
 *{
@@ -16,4 +23,26 @@ a:active { text-decoration: none; color: black; font-weight: 600;}
 h3{
     font-weight: 600;
     /* text-decoration: underline; */
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: var(--change-bg-color) !important;
+    color:#000 !important;
+    border-color: var(--change-bg-color) !important;
+}
+
+.btn-danger, .btn-danger:active, .btn-danger:visited {
+    background-color: var(--cry-bg-color)!important;
+    color:#000 !important;
+    border-color: var(--cry-bg-color) !important;
+}
+
+.btn-outline-primary,  .btn-outline-primary:active, .btn-outline-primary:visited {
+    background-color: var(--main-bg-color)!important;
+    color:#FFF !important;
+    border-color: var(--main-bg-color)!important;
+}
+
+.btn:hover {
+    filter: brightness(85%);
 }

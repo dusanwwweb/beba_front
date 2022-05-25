@@ -1,14 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
 import { NotebookService } from 'src/app/service/notebook.service';
 import { Location } from '@angular/common'
-import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PostModalComponent } from '../post-modal/post-modal.component';
 import { PostService } from 'src/app/service/post.service';
-import { UpdatePostComponent } from '../update-post/update-post.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivityType } from 'src/app/enums/activityType.enum';
 @Component({
   selector: 'app-notebook-detail',
@@ -21,16 +17,15 @@ export class NotebookDetailComponent implements OnInit {
   notebook!: Notebook;
 
   //Enum 
-  activityList = Object.values(ActivityType);
-  activityType: Array<string> = Object.values(ActivityType).filter(value => isNaN(+value));
+  // activityList = Object.values(ActivityType);
+  // activityType: Array<string> = Object.values(ActivityType).filter(value => isNaN(+value));
   
   constructor(
     private notebookService: NotebookService, 
     private postService: PostService,
     private route: ActivatedRoute, 
     private router: Router,
-    private location: Location,
-    private modalService: NgbModal,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -38,15 +33,14 @@ export class NotebookDetailComponent implements OnInit {
       this.getNotebookDetails();
     }))
 
-    console.log(this.activityList);
-    
+    // console.log(this.activityList);
   }
 
   getNotebookDetails() {
     const notebookId = Number(this.route.snapshot.paramMap.get('id'));
-
+    
     this.notebookService.getNotebookById(notebookId).subscribe( 
-      response => {this.notebook = response}
+      response => {this.notebook = response} 
     )
 
     this.notebookService.getPostsById(notebookId).subscribe( 
@@ -54,41 +48,38 @@ export class NotebookDetailComponent implements OnInit {
     )
   }
 
-  openPostModal() {
-    const modalRef = this.modalService.open(PostModalComponent,
-      {
-        scrollable: true,
-        //windowClass: 'myCustomModalClass',
-        // keyboard: false,
-        // backdrop: 'static'
-      });
-
-    let data = {
-      id: Number(this.route.snapshot.paramMap.get('id')),
-    }
-
-    modalRef.componentInstance.fromParent = data;
-    modalRef.result.then((result) => {
-      console.log(result);
-    }, (reason) => {});
-  }
-
-  back(): void {
-    this.location.back()
-  }
-
   deletePost(postId:number){
     this.postService.deletePost(postId).subscribe( response => {
       this.posts = this.posts.filter(item => item.id !== postId);
       alert('Note supprimée avec success');
-    }, err => {
-      console.log(err);
-    });
+    })
   }
 
   updatePost(id: number){
     this.router.navigate(['post', id]);
   }
+
+  back(): void {
+    this.location.back()
+  }
   
+  isActivity(activityType: any){
+      switch (activityType) {
+        case "AWAKE":
+          return "var(--awake-bg-color)";
+        case "REST":
+          return "var(--rest-bg-color)";
+        case "EAT":
+          return "var(--eat-bg-color)";
+        case "STOOL":
+          return "var(--stool-bg-color)";
+        case "CRY":
+          return "var(--cry-bg-color)";
+        case "CHANGE":
+          return "var(--change-bg-color)";
+        default: return "white"
+          break;
+      }
+  }
 }
 
