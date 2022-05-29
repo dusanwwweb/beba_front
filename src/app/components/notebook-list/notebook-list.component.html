@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th>nom</th>
-        <th>creation</th>
+        <th>création</th>
         <th>notes</th>
       </tr>
     </thead>
@@ -18,7 +18,7 @@
         <td *ngIf="notebook.posts">{{ notebook.posts?.length || "0" }}</td>
         <button
           type="button"
-          class="btn btn-sm btn-outline-success"
+          class="btn btn-lg btn-outline-primary"
           routerLink="/notebook/{{ notebook.id }}" 
         >
           <fa-icon [icon]="farBookBookmark"></fa-icon>

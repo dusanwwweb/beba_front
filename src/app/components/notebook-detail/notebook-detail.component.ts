@@ -15,7 +15,8 @@ export class NotebookDetailComponent implements OnInit {
 
   posts!: Post[];
   notebook!: Notebook;
-
+  isShow: boolean =  false; //PROBLEME !
+  
   //Enum 
   // activityList = Object.values(ActivityType);
   // activityType: Array<string> = Object.values(ActivityType).filter(value => isNaN(+value));
@@ -51,12 +52,13 @@ export class NotebookDetailComponent implements OnInit {
   deletePost(postId:number){
     this.postService.deletePost(postId).subscribe( response => {
       this.posts = this.posts.filter(item => item.id !== postId);
-      alert('Note supprimée avec success');
+      // alert('Note supprimée avec success');
     })
   }
 
   updatePost(id: number){
     this.router.navigate(['post', id]);
+    this.isShow = !this.isShow;
   }
 
   back(): void {

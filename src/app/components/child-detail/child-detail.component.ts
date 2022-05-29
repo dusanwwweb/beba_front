@@ -14,7 +14,7 @@ export class ChildDetailComponent implements OnInit {
 
   child!: Child; 
   children!: Child[];
-  
+
   constructor(
     private childService: ChildService,
     private route: ActivatedRoute,

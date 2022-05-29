@@ -17,19 +17,19 @@
 
         <!-- Link -->
         <li class="nav-item">
-          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/section">Sections</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/section">sections</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/children">Bébés</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/children">bébés</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/notebook">Carnets</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" class="nav-link" routerLink="/notebook">carnets</a>
         </li>
         <li class="nav-item">
           <a *ngIf="!authService.isEmployeeLoggedIn()" routerLink="/login" class="nav-link">Login</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isEmployeeLoggedIn()" routerLink="/logout" class="nav-link">Logout</a>
+          <a *ngIf="authService.isEmployeeLoggedIn()" routerLink="/logout" class="nav-link" placement="left" ngbTooltip="déconnexion"><fa-icon [icon]="farSignOutAlt"></fa-icon></a>
         </li> 
       </ul>
 

@@ -2,14 +2,14 @@ export enum ActivityType {
     AWAKE = "Éveil",
     REST = "Repos",
     EAT = "Répas",
-    STOOL = "Selles",
-    CRY = "Pleures",
+    STOOL = "Selle",
+    CRY = "Pleurs",
     CHANGE = "Change"
 
     // EVEIL = "Awake",
     // REPOS = "Rest",
     // REPAS = "Meal",
-    // SELLES = "Stool",
-    // PLEURES = "Cry",
+    // SELLE = "Stool",
+    // PLEURS = "Cry",
     // CHANGE = "Change"
 }
