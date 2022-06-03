@@ -15,7 +15,7 @@ export class NotebookDetailComponent implements OnInit {
 
   posts!: Post[];
   notebook!: Notebook;
-  isShow: boolean =  false; //PROBLEME !
+  isShow: boolean = true; //PROBLEME !
   
   //Enum 
   // activityList = Object.values(ActivityType);
@@ -58,6 +58,7 @@ export class NotebookDetailComponent implements OnInit {
 
   updatePost(id: number){
     this.router.navigate(['post', id]);
+    console.log(this.isShow);
     this.isShow = !this.isShow;
   }
 
@@ -67,15 +68,15 @@ export class NotebookDetailComponent implements OnInit {
   
   isActivity(activityType: any){
       switch (activityType) {
-        case "AWAKE":
+        case "EVEIL":
           return "var(--awake-bg-color)";
-        case "REST":
+        case "REPOS":
           return "var(--rest-bg-color)";
-        case "EAT":
+        case "REPAS":
           return "var(--eat-bg-color)";
-        case "STOOL":
+        case "SELLE":
           return "var(--stool-bg-color)";
-        case "CRY":
+        case "PLEURS":
           return "var(--cry-bg-color)";
         case "CHANGE":
           return "var(--change-bg-color)";
