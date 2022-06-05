@@ -1,15 +1,14 @@
-<div class="row">
-    <div class="card col-md-6 offset-md-3 offset-md-3">
+<div class="container table-responsive">
+    <div class="col-md-6 offset-md-3 offset-md-3">
       <div class="row">
         <h3 class="text-left">Mettre à jour</h3>
-        <hr />
         <div class="card-body">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <div class="mb-3">
-                <label for="activityType" class="form-label"
-                  >Type d'activité</label
-                >
+                <label for="activityType" class="form-label">
+                  Type d'activité
+                </label>
                 <input
                   [(ngModel)]="post.activityType"
                   type="text"
@@ -37,26 +36,6 @@
                   name="observation"
                 />
               </div>
-              <!-- <div class="mb-3">
-                <label for="startTime" class="form-label">Début</label>
-                <input
-                  [(ngModel)]="post.startTime"
-                  type="time"
-                  class="form-control"
-                  id="startTime"
-                  name="startTime"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="endTime" class="form-label">Fin</label>
-                <input
-                  [(ngModel)]="post.endTime"
-                  type="time"
-                  class="form-control"
-                  id="endTime"
-                  name="endTime"
-                />
-              </div> -->
               <br />
               <div class="d-flex justify-content-between">
               <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">Retour</button>
@@ -67,5 +46,4 @@
         </div>
       </div>
     </div>
-  </div>
-  
+</div>

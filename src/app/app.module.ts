@@ -39,7 +39,7 @@ import { LogoutComponent } from './components/auth/logout/logout.component';
     UpdatePostComponent,
     CreatePostComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,4 +3,28 @@
     width: 25px;
     border-radius: 50%;
     display: inline-block;
-  }
+}
+
+.buttons {
+    text-align: right;
+} 
+
+@media only screen and (max-width: 720px) {
+    /* cration & modification */
+    .time{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .small-hide{
+        display: none;
+    }
+
+}

@@ -1,70 +1,49 @@
-<div class="row">
-  <div class="card col-md-6 offset-md-3 offset-md-3">
-    <div class="row">
-      <h3 class="text-left">Nouvelle note</h3>
-      <hr />
-      <div class="card-body">
-        <form (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <div class="mb-3">
-              <label for="activityType" class="form-label">
-                Type d'activité
-              </label>
-              <input
-                [(ngModel)]="post.activityType"
-                type="text"
-                class="form-control"
-                id="activityType"
-                name="activityType"
-                list="activityList"
-              />
-              <datalist id="activityList">
-                <option value="EVEIL"></option>
-                <option value="REPOS"></option>
-                <option value="REPAS"></option>
-                <option value="SELLE"></option>
-                <option value="PLEURS"></option>
-                <option value="CHANGE"></option>
-              </datalist>
+<div class="container table-responsive">
+    <div class="col-md-6 offset-md-3 offset-md-3">
+      <div class="row">
+        <h3 class="text-left">Nouvelle note</h3>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <div class="mb-3">
+                <label for="activityType" class="form-label">
+                  Type d'activité
+                </label>
+                <input
+                  [(ngModel)]="post.activityType"
+                  type="text"
+                  class="form-control"
+                  id="activityType"
+                  name="activityType"
+                  list="activityList"
+                />
+                <datalist id="activityList">
+                  <option value="EVEIL"></option>
+                  <option value="REPOS"></option>
+                  <option value="REPAS"></option>
+                  <option value="SELLE"></option>
+                  <option value="PLEURS"></option>
+                  <option value="CHANGE"></option>
+                </datalist>
+              </div>
+              <div class="mb-3">
+                <label for="observation" class="form-label">Observation</label>
+                <input
+                  [(ngModel)]="post.observation"
+                  type="text"
+                  class="form-control"
+                  id="observation"
+                  name="observation"
+                />
+              </div>
+              <br />
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">Retour</button>
+                <button class="btn btn-sm btn-primary" type="submit">Sauvgarder</button>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="observation" class="form-label">Observation</label>
-              <input
-                [(ngModel)]="post.observation"
-                type="text"
-                class="form-control"
-                id="observation"
-                name="observation"
-              />
-            </div>
-            <!-- <div class="mb-3">
-              <label for="startTime" class="form-label">Début</label>
-              <input
-                [(ngModel)]="post.startTime"
-                type="time"
-                class="form-control"
-                id="startTime"
-                name="startTime"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="endTime" class="form-label">Fin</label>
-              <input
-                [(ngModel)]="post.endTime"
-                type="time"
-                class="form-control"
-                id="endTime"
-                name="endTime"
-              />
-            </div> -->
-            <br />
-            <div class="d-flex justify-content-between">
-              <button type="button" class="btn btn-sm btn-outline-primary" (click)="back()">Retour</button>
-              <button class="btn btn-sm btn-primary" type="submit">Sauvgarder</button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 </div>

@@ -1,25 +1,25 @@
-<div class=" container table-responsive">
+<div class=" container-lg table-responsive">
   <h3 class="mb-4">{{ notebook?.name }}</h3>
   <table class="table table-hover border-success">
     <thead>
       <tr>
         <th></th>
-        <th>activité</th> 
-        <th>observation</th>
-        <th>création</th>
-        <th>modification</th>
+        <th class="small-hide">activité</th> 
+        <th class="small-hide">observation</th>
+        <th class="time">création</th>
+        <th class="time">modification</th>
       </tr>
     </thead>
     
     <tbody>
-      <tr *ngFor="let post of posts, let i = index">
+      <tr *ngFor="let post of posts, let i = index" class="flex-column">
         <!-- <td><span class="dot"  [style.backgroundColor]="isActivity(post.activityType)">{{i + 1}}</span></td> -->
         <td><span class="dot"  [style.backgroundColor]="isActivity(post.activityType)"></span></td>
         <td style="font-weight: 600;">{{ post.activityType | lowercase}}</td>
         <td>{{ post.observation }}</td>
-        <td>{{ post.startTime | date: 'd MMMM y à HH:mm' }}</td>
-        <td  *ngIf = "!isShow">{{ post.endTime | date:  'd MMMM y à HH:mm' }}</td>
-        <td class="d-flex justify-content-end">
+        <td class="time">{{ post.startTime | date: 'd MMMM y à HH:mm' }}</td>
+        <td class="time" *ngIf = "!isShow">{{ post.endTime | date:  'd MMMM y à HH:mm' }}</td>
+        <td class="buttons">
           <button type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</button>
           <button type="button" class="btn btn-sm btn-danger" (click)="deletePost(post.id)">Supprimer</button>
       </td>

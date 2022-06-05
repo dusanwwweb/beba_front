@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Notebook } from 'src/app/models/notebook.model';
 import { Post } from 'src/app/models/post.model';
@@ -11,11 +11,11 @@ import { ActivityType } from 'src/app/enums/activityType.enum';
   templateUrl: './notebook-detail.component.html',
   styleUrls: ['./notebook-detail.component.css']
 })
-export class NotebookDetailComponent implements OnInit {
+export class NotebookDetailComponent implements OnInit{
 
   posts!: Post[];
   notebook!: Notebook;
-  isShow: boolean = true; //PROBLEME !
+  isShow: boolean = false; //PROBLEME !
   
   //Enum 
   // activityList = Object.values(ActivityType);
@@ -26,7 +26,7 @@ export class NotebookDetailComponent implements OnInit {
     private postService: PostService,
     private route: ActivatedRoute, 
     private router: Router,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {

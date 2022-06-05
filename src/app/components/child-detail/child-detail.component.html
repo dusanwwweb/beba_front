@@ -3,19 +3,19 @@
     <thead>
       <tr>
         <th><span>{{ child.firstName }} {{ child.lastName }}</span></th>
-        <th>adresse</th>
-        <th>naissance</th>
-        <th>poids</th>
-        <th>sexe</th>
-        <th>allergie</th>
-        <th>mis à jour</th>
-        <th>parents</th>
-        <th>carnet</th>
+        <th class="small-hide">adresse</th>
+        <th class="small-hide">naissance</th>
+        <th class="small-hide">poids</th>
+        <th class="small-hide">sexe</th>
+        <th class="small-hide">allergie</th>
+        <th class="small-hide">mis à jour</th>
+        <th class="small-hide">parents</th>
+        <th class="small-hide">carnet</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
+      <tr class="flex-column">
         <td><img [src]="child.profilePhoto"></td>
         <td>{{ child.address }}, {{ child.city }}</td>
         <td>{{ child.dateOfBirth }}</td>

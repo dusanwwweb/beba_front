@@ -10,7 +10,20 @@ img{
 span {
     font-weight: 600;
 }
-/* .table {
-    table-layout: fixed;
-    width: 100%;
-} */
+
+/* searchbox input */
+.form-control{
+    width: 180% !important;
+}
+
+@media only screen and (max-width: 720px) {
+    /* searchbox input */
+    .form-control{
+        width: 450% !important;
+        
+    }
+    
+    img{
+        width: 60%;
+    }
+}
