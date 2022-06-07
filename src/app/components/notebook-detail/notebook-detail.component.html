@@ -13,14 +13,15 @@
     
     <tbody>
       <tr *ngFor="let post of posts, let i = index" class="flex-column">
-        <!-- <td><span class="dot"  [style.backgroundColor]="isActivity(post.activityType)">{{i + 1}}</span></td> -->
+        <!-- <td><span>{{i + 1}}</span></td> -->
         <td><span class="dot"  [style.backgroundColor]="isActivity(post.activityType)"></span></td>
         <td style="font-weight: 600;">{{ post.activityType | lowercase}}</td>
         <td>{{ post.observation }}</td>
         <td class="time">{{ post.startTime | date: 'd MMMM y à HH:mm' }}</td>
-        <td class="time" *ngIf = "!isShow">{{ post.endTime | date:  'd MMMM y à HH:mm' }}</td>
+        <td class="time" *ngIf = "post.endTime > post.startTime; else alternatifMessage">{{ post.endTime | date:  'd MMMM y à HH:mm' }}</td>
         <td class="buttons">
-          <button type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</button>
+          <!-- <button type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</button> -->
+          <a routerLink="/notebook/{{ notebook.id }}"  type="button"class="btn btn-sm btn-primary mx-3" (click)="updatePost(post.id)">Modifier</a>
           <button type="button" class="btn btn-sm btn-danger" (click)="deletePost(post.id)">Supprimer</button>
       </td>
       </tr>
@@ -35,3 +36,7 @@
     </button>
   </div>
 </div>
+
+<ng-template #alternatifMessage>
+        <td class="time"></td>
+</ng-template>

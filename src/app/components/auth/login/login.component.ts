@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   employee: Employee = new Employee();
 
-  // email = 'alexmartin@beba.com'
+  // email = 'alex@beba.com'
   // password = 'pass'
   invalidLogin = false
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     this.authService.loginUser(this.employee).subscribe(
-      data => console.log("Response recieved"),
+      data => console.log("Response recieved " + data)
     )
   }
 

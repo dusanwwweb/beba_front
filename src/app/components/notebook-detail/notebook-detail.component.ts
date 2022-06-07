@@ -15,7 +15,6 @@ export class NotebookDetailComponent implements OnInit{
 
   posts!: Post[];
   notebook!: Notebook;
-  isShow: boolean = false; //PROBLEME !
   
   //Enum 
   // activityList = Object.values(ActivityType);
@@ -58,8 +57,6 @@ export class NotebookDetailComponent implements OnInit{
 
   updatePost(id: number){
     this.router.navigate(['post', id]);
-    console.log(this.isShow);
-    this.isShow = !this.isShow;
   }
 
   back(): void {
