@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   employee: Employee = new Employee();
 
-  // email = 'alex@beba.com'
-  // password = 'pass'
+  email = ''
+  password = ''
   invalidLogin = false
 
   constructor(

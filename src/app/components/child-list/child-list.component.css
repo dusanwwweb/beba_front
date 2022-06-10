@@ -19,8 +19,7 @@ span {
 @media only screen and (max-width: 720px) {
     /* searchbox input */
     .form-control{
-        width: 450% !important;
-        
+        width: 450% !important; 
     }
     
     img{
